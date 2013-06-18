@@ -17,3 +17,4 @@ def pal2(word):
     return word == word[::-1]
 
 print pal2('rowme')
+
