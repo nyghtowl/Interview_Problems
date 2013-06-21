@@ -9,7 +9,7 @@ def msort(words):
         result = merge_sort(list(words))
         return ''.join(result)
     else:
-        return merg_sort(words)
+        return merge_sort(words)
 
 # determines input len & splits and calls merge function
 def merge_sort(mlist):

@@ -23,7 +23,7 @@ def draw_board(n):
 def is_even(c):
     return c % 2 == 0
 
-def draw_board(n):
+def draw_board2(n):
     for row in range(n):
         for column in range(n):
             if is_even(row):
@@ -39,10 +39,10 @@ def draw_board(n):
 
 #---
 
-#micro-optimizing to show off nested list comprehensions.
+#micro-optimizing to show off nested list comprehensions. - jdunck
 #  in the 1st row, make the odd checks black.
 #  in the 2nd row, make the even checks black.
-def draw_board(n):
+def draw_board3(n):
     boxes = [(i,j) for i in range(n) for j in range(n)]
     for box in boxes:
         if is_even(box[0] + box[1]):
