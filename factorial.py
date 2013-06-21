@@ -4,45 +4,34 @@ Generate factorial
 
 import math
 
-# Recursive solution
 def rec_fact(n):
     if n == 0:
         return 1
     else:
         return (n * rec_fact(n-1))
 
-print 0, rec_fact(4)
-
-#---
-
-#Loop solution
-def factorial(n):
+def loop_sol_1(n):
     num = n
     while num > 1:
         num -= 1
         n *= num
     return n
 
-print 1, factorial(3)
-
-#---
-
-#Loop solution
-def factorial2(n):
+def loop_sol_2(n):
     for num in range(1,n):
         n *= num
     return n
 
-print 2, factorial2(3)
+def functional(n):
+    return reduce(lambda x,y:x*y,[1]+range(1,n+1))
 
-#---
+std_lib = math.factorial
 
-#List comprehension solution
-def factorial3(n):return reduce(lambda x,y:x*y,[1]+range(1,n+1))
+implementations = [std_lib, rec_fact, loop_sol_1, loop_sol_2, functional]
 
-print 3, factorial3(3)
-
-#---
-
-#math library solution
-print 4, math.factorial(3)
+for impl in implementations:
+    print "trying %s" % impl
+    print "  f(0) == 1: %s" % (impl(0) == 1)
+    print "  f(1) == 1: %s" % (impl(1) == 1)
+    print "  f(2) == 1: %s" % (impl(2) == 2)
+    print "  f(3) == 1: %s" % (impl(3) == 6)
