@@ -25,6 +25,8 @@ def factorial(n):
 
 print 1, factorial(3)
 
+#---
+
 #Loop solution
 def factorial2(n):
     for num in range(1,n):
@@ -33,10 +35,14 @@ def factorial2(n):
 
 print 2, factorial2(3)
 
+#---
+
 #List comprehension solution
 def factorial3(n):return reduce(lambda x,y:x*y,[1]+range(1,n+1))
 
 print 3, factorial3(3)
+
+#---
 
 #math library solution
 print 4, math.factorial(3)
