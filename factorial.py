@@ -11,6 +11,8 @@ def rec_fact(n):
         return (n * rec_fact(n-1))
 
 def loop_sol_1(n):
+    if n == 0:
+        n = 1
     num = n
     while num > 1:
         num -= 1
@@ -18,6 +20,8 @@ def loop_sol_1(n):
     return n
 
 def loop_sol_2(n):
+    if n == 0:
+        n = 1
     for num in range(1,n):
         n *= num
     return n
@@ -33,5 +37,5 @@ for impl in implementations:
     print "trying %s" % impl
     print "  f(0) == 1: %s" % (impl(0) == 1)
     print "  f(1) == 1: %s" % (impl(1) == 1)
-    print "  f(2) == 1: %s" % (impl(2) == 2)
-    print "  f(3) == 1: %s" % (impl(3) == 6)
+    print "  f(2) == 2: %s" % (impl(2) == 2)
+    print "  f(3) == 6: %s" % (impl(3) == 6)
