@@ -18,7 +18,7 @@ def draw_board(n):
                 draw_white()
             else:
                 draw_black()
----
+#---
 
 def is_even(c):
     return c % 2 == 0
@@ -33,6 +33,19 @@ def draw_board(n):
                     draw_black()
             else:
                 if is_even(column):
-                    draw_white()
+                    draw_black()
                 else:
-                    draw_black()                
+                    draw_white()                
+
+#---
+
+#micro-optimizing to show off nested list comprehensions.
+#  in the 1st row, make the odd checks black.
+#  in the 2nd row, make the even checks black.
+def draw_board(n):
+    boxes = [(i,j) for i in range(n) for j in range(n)]
+    for box in boxes:
+        if is_even(box[0] + box[1]):
+            draw_white()
+        else:
+            draw_black()
