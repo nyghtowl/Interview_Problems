@@ -4,12 +4,14 @@ Generate factorial
 
 import math
 
+ #recursive solution
 def rec_fact(n):
     if n == 0:
         return 1
     else:
         return (n * rec_fact(n-1))
 
+#while loop iteration solution
 def loop_sol_1(n):
     if n == 0:
         n = 1
@@ -19,6 +21,7 @@ def loop_sol_1(n):
         n *= num
     return n
 
+#for loop iteration solution
 def loop_sol_2(n):
     if n == 0:
         n = 1
@@ -26,6 +29,7 @@ def loop_sol_2(n):
         n *= num
     return n
 
+ #List comprehension solution
 def functional(n):
     return reduce(lambda x,y:x*y,[1]+range(1,n+1))
 
