@@ -1,11 +1,16 @@
+'''
+Breadth First Search
+'''
 
-# Breadth First Search
+
 class Node():
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
 
+
+    #Prints each value moving across each layer
     def bft(self):
         q = []
         q.append(self)
@@ -17,6 +22,8 @@ class Node():
             if n.right:
                 q.append(n.right)
 
+
+    #Prints each level on a separate line.
     def bft2(self):
         q = []
         q2 = []
@@ -33,6 +40,8 @@ class Node():
                 q2 =[]
                 print ""
 
+
+    #Variation that prints each level on a separate line.
     def bft3(self):
         parent = [self]
         while parent:
@@ -47,6 +56,7 @@ class Node():
             print ""
 
 
+#Build out the tree.
 n = Node('Lola')
 n2 = Node('Ann')
 n3 = Node('Rose')
@@ -58,4 +68,5 @@ n.right = n3
 n.right.left = n4
 n.right.right = n5
 n.left.left = n6
+
 n.bft3()

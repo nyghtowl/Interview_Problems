@@ -1,4 +1,8 @@
- # Depth First Search
+'''
+Depth First Search
+'''
+
+
 class Node_DFS():
     def __init__(self):
         self.val = val
@@ -18,6 +22,7 @@ class Node_DFS():
 
         return hold
 
+#Build out the tree.
 n = Node('Lola')
 n2 = Node('Ann')
 n3 = Node('Rose')
