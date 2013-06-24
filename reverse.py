@@ -1,11 +1,11 @@
 '''
-Reverse a string or link.
+Reverse a string, sentenece or link.
 '''
 
+# Simple example of reversing a string.
+# However, pop is an expensive call and should be avoided in code that
+# will be called many times. 
 def reverse_str(string):
-    # Simple example of reversing a string.
-    # However, pop is an expensive call and should be avoided in code that
-    # will be called many times. 
     rev_list=[]
     new_list=list(string)
     while new_list:
@@ -13,13 +13,12 @@ def reverse_str(string):
         new_list.pop()
     return ''.join(rev_list)
 
-
+# Neat reverse string trick in python.
 def reverse_str2(string):
-    # Neat reverse string trick in python.
     return string[::-1]
 
 
-# Utilize reversed function.
+# Utilizes reversed function.
 def reverse_str3(string):
     return ''.join(reversed(string))
 
