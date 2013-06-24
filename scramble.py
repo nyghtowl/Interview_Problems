@@ -67,7 +67,7 @@ def search(letters, r):
 
 def unscramble(word, english):
     words = []
-    word = tuple(sorted(word))
+    word = sorted(word)
 
     for i in range(1, len(word) + 1):
         for subset in search(word, i):
@@ -80,12 +80,11 @@ def permutations(letters, r):
     # Similar to itertools.permutations()
     # Shuffle through all combinations found through search(). 
     n = len(letters)
-    if r is None: r = n
     if r > n:
         return
     indices = range(n)
     cycles = range(n, n-r, -1)
-    yield tuple(letters[i] for i in indices[:r])
+    yield ''.join(letters[i] for i in indices[:r])
     while n:
         for i in reversed(range(r)):
             cycles[i] -= 1
@@ -95,7 +94,7 @@ def permutations(letters, r):
             else:
                 j = cycles[i]
                 indices[i], indices[-j] = indices[-j], indices[i]
-                yield tuple(letters[i] for i in indices[:r])
+                yield ''.join(letters[i] for i in indices[:r])
                 break
         else:
             return
@@ -103,13 +102,11 @@ def permutations(letters, r):
 
 def unscramble_simple_dict(word, english):
     words = []
-    letters = tuple(word)
     
-    for i in range(1, len(letters) + 1):
-        for subset in permutations(letters, i):
-            s = ''.join(subset)
-            if english.get(s, False):
-                words.append(s)
+    for i in range(1, len(word) + 1):
+        for subset in permutations(word, i):
+            if english.get(subset, False):
+                words.append(subset)
     return words
 
 
