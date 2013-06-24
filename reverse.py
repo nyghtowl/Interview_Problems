@@ -1,8 +1,11 @@
 '''
-reverse a string or link
+Reverse a string or link.
 '''
 
-def rev_str(string):
+def reverse_str(string):
+    # Simple example of reversing a string.
+    # However, pop is an expensive call and should be avoided in code that
+    # will be called many times. 
     rev_list=[]
     new_list=list(string)
     while new_list:
@@ -10,35 +13,27 @@ def rev_str(string):
         new_list.pop()
     return ''.join(rev_list)
 
-print 0, rev_str('hello')
 
-#---
-
-def rev_str2(string):
+def reverse_str2(string):
+    # Neat reverse string trick in python.
     return string[::-1]
 
-print 2, rev_str2('example')
-    
-#---
 
-#utilize reversed function
-def rev_str3(string):
+# Utilize reversed function.
+def reverse_str3(string):
     return ''.join(reversed(string))
 
-#---
 
-# reverse in constant time
-def rev_str4(string):
+# Reverse in constant time.
+def reverse_str4(string):
     string_list = list(string)
     for i in range(int((len(string))/2)):
-        string_list[i],string_list[-1-i] = string_list[-1-i],string_list[i]
+        # Swap values in array.
+        string_list[i], string_list[-1-i] = string_list[-1-i], string_list[i]
     return ''.join(string_list)
 
-print 4, rev_str4('nighttime')
 
-#---
-
-def rev_str5(string):
+def reverse_str5(string):
     list_str = list(string)
     length = len(list_str)
     if length <= 1:
@@ -48,46 +43,49 @@ def rev_str5(string):
             list_str[i],list_str[-1-i] = list_str[-1-i], list_str[i]
         return ''.join(list_str)
 
-#---
 
-def rev_sentence6(sentence):
+def reverse_sentence6(sentence):
     sent_list = sentence.split(' ')
     new_list = []
     for word in sent_list:
-        new_list.append(rev_str(word))
+        new_list.append(reverse_str(word))
     return ' '.join(new_list)
 
 
-print 6, rev_sentence6('hello world')
-#---
-
-#reverse a string and replace capitalize vowels
-
+# Reverse a string and replace capitalize vowels.
 def cap(char):
     if char in 'aeiou':
         return char.upper()
     return char
 
-def rev_sentence7(sent):
+def reverse_sentence7(sent):
+    # Anti-Marxist style of reversing strings. 
     alist = list(sent)
     for i in range(int(len(alist)/2)):
         alist[i], alist[-1-i] = cap(alist[-1-i]), cap(alist[i])
-    return ' '.join(alist)
+    return ''.join(alist)
 
-print 7, rev_sentence7('hello world')
 
-#---
-
-def rev_list(alist):
+def reverse_list(alist):
     for num in range(int(len(alist)/2)):
         alist[num], alist[-1-num] = alist[-1-num], alist[num]
     return alist
 
-print 0, rev_list(['h','e','l','l','o'])
 
-
-#---
-
-def rev_list2(alist):
+def reverse_list2(alist):
     return alist[::-1]    
+
+
+if __name__ == '__main__':
+    print "reverse_str:\t", reverse_str("string")
+    print "reverse_str2:\t", reverse_str2("string")
+    print "reverse_str3:\t", reverse_str3("string")
+    print "reverse_str4:\t", reverse_str4("string")
+    print "reverse_str5:\t", reverse_str5("string")
+
+    
+    print "reverse_sentence6:\t", reverse_sentence6("The lazy brown fox.")
+    print "reverse_sentence7:\t", reverse_sentence7("The lazy brown fox.")
+    print "reverse_list:\t", reverse_list([i for i in range(10)])
+    print "reverse_list2:\t", reverse_list2([i for i in range(10)])
 
