@@ -1,36 +1,55 @@
+#!/usr/bin/env python
 '''
-merge sort python example
+Mergesort example.
+Sort an array of items in O(n log n).
 
-how to do in constant space?
+Challenge:
+    How to complete mergesort in constant space?
 '''
-# checks input type and converts to list
-def msort(words):
+from random import shuffle
+
+
+# Check input type and convert to list.
+def mergesort(words):
     if type(words) is str:
-        result = merge_sort(list(words))
+        result = slice_array(list(words))
         return ''.join(result)
     else:
-        return merge_sort(words)
+        return slice_array(words)
 
-# determines input len & splits and calls merge function
-def merge_sort(mlist):
-    if len(mlist) < 2: return mlist
-    size = int(len(mlist)/2)
-    return merge(merge_sort(mlist[:size]), merge_sort(mlist[size:]))
 
-def merge(l, r):
+# Determine input len & splits and call merge function.
+def slice_array(mlist):
+    size = len(mlist)
+    if size <= 1: 
+        return mlist
+    mid = size / 2
+    return sort_values(slice_array(mlist[:mid]), slice_array(mlist[mid:]))
+
+
+def sort_values(left, right):
     result = []
-    i = j = 0
-    # compares l and r lists and appends to temp list
-    while i < len(l) and j < len(r):
-        if l[i] < r[j]:
-            result.append(l[i])
+    i, j = 0, 0
+    
+    # Compare left and right lists and append to temp list.
+    while i < len(left) and j < len(right):
+        if left[i] < right[j]:
+            result.append(left[i])
             i += 1
         else:
-            result.append(r[j])
-            j += 1  
-    # adds remaining input to results to pass back
-    result += l[i:]
-    result += r[j:]
-    return result
+            result.append(right[j])
+            j += 1
 
-print msort('hellow world')
+    # Add remaining input to results to pass back.
+    return result + left[i:] + right[j:]
+
+
+if __name__ == '__main__':
+    # Test string.
+    print mergesort('hellow world')     # ' dehllloorww'
+
+    # Test array of ints.
+    nums = [i for i in range(42)]
+    shuffle(nums)
+    print mergesort(nums)
+
