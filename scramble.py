@@ -5,6 +5,15 @@ acceptable words.
 Example:
     Input: 'dog'
     Output: 'dog', 'god', 'go', 'do'
+
+Two cases:
+    1) Using a dict that maps a sorted tuple of letters to possible words.
+        ex. d[('d', 'o', 'g')] = ['dog', 'god']
+    2) Using a dict that only maps string word to True:
+        ex. d['dog'] = True
+
+What are the pros and cons of the different methods? In which situation(s)
+would one be preferable over the other? Which is ~generally~ better?
 """
 
 def create_dict(file_name):
@@ -21,6 +30,18 @@ def create_dict(file_name):
             words[key].append(word)
         else:
             words[key] = [word]
+    return words
+
+
+def create_simple_dict(file_name):
+    # Create dict that maps word to True.
+    # We don't have time to sort through all these words.
+    words = {}
+    with open(file_name) as f:
+        content = f.readlines()
+    for word in content:
+        word = word.strip()
+        words[word] = True
     return words
 
 
@@ -55,9 +76,51 @@ def unscramble(word, english):
     return words
 
 
+def permutations(letters, r):
+    # Similar to itertools.permutations()
+    # Shuffle through all combinations found through search(). 
+    n = len(letters)
+    if r is None: r = n
+    if r > n:
+        return
+    indices = range(n)
+    cycles = range(n, n-r, -1)
+    yield tuple(letters[i] for i in indices[:r])
+    while n:
+        for i in reversed(range(r)):
+            cycles[i] -= 1
+            if cycles[i] == 0:
+                indices[i:] = indices[i+1:] + indices[i:i+1]
+                cycles[i] = n - i
+            else:
+                j = cycles[i]
+                indices[i], indices[-j] = indices[-j], indices[i]
+                yield tuple(letters[i] for i in indices[:r])
+                break
+        else:
+            return
+
+
+def unscramble_simple_dict(word, english):
+    words = []
+    letters = tuple(word)
+    
+    for i in range(1, len(letters) + 1):
+        for subset in permutations(letters, i):
+            s = ''.join(subset)
+            if english.get(s, False):
+                words.append(s)
+    return words
+
+
 if __name__ == '__main__':
     english = create_dict('words.txt')
     print "Dictionary created."
     print unscramble('dog', english)
     print unscramble('yawn', english)
+
+    english = create_simple_dict('words.txt')
+    print "Dictionary created."
+    print unscramble_simple_dict('dog', english)
+    print unscramble_simple_dict('yawn', english)
 
