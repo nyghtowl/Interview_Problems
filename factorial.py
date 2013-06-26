@@ -29,12 +29,14 @@ def loop_sol_2(n):
         n *= num
     return n
 
- #List comprehension solution
+ #list comprehension solution
 def functional(n):
     return reduce(lambda x,y:x*y,[1]+range(1,n+1))
 
+#math library solution
 std_lib = math.factorial
 
+#test 
 implementations = [std_lib, rec_fact, loop_sol_1, loop_sol_2, functional]
 
 for impl in implementations:

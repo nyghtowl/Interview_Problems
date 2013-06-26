@@ -9,8 +9,7 @@ Challenge: account for negative or fraction numbers
 
 '''
 
-#recursive solution - assumes no negatives or fractions entered and starting at 0
-def fib_iteration(num): #create a list and then sum at the end
+def fib_iteration(num): 
     alist = []
     first = 0
     second = 1
@@ -19,6 +18,7 @@ def fib_iteration(num): #create a list and then sum at the end
         num -= 1
         first, second = second, (first + second)
     return alist[num]
+
 
 def fib_recursive(num):
     if num == 0:
