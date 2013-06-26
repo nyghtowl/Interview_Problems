@@ -9,19 +9,28 @@ Challenge: account for negative or fraction numbers
 
 '''
 
-#assumes no negatives or fractions entered and starting at 0
-def fibonacci(num):
+#recursive solution - assumes no negatives or fractions entered and starting at 0
+def fib_iteration(num): #create a list and then sum at the end
+    alist = []
+    first = 0
+    second = 1
+    while num >= 0:
+        alist.append(first)
+        num -= 1
+        first, second = second, (first + second)
+    return alist[num]
+
+def fib_recursive(num):
     if num == 0:
         return 0
     if num <= 2:
         return 1
     else:
-        return fibonacci(num-1) + fibonacci(num-2)  
-
+        return fib_recursive(num-1) + fib_recursive(num-2)  
 
 
 #test 
-implementations = [fibonacci]
+implementations = [fib_iteration, fib_recursive]
 
 for impl in implementations:
     print "trying %s" % impl
