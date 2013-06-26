@@ -1,16 +1,17 @@
 ''' 
-chess board
+Chess Board
 
-draw a chess board - w & b assume drawwhite and drawblack functions exist and
+Draw a chess board - Assume draw_white and draw_black functions exist and
 can be called
 
-chessboard is 8 x 8 but to make this function more usable, better to use a
+Chessboard is 8 x 8 but to make this function more usable, better to use a
 variable for size
 
-trick - when drawn out, when the numbers on a grid are both even or both odd then they are the same color
+Trick: When drawn out, when the numbers on a grid are both even or both odd then they are the same color
 
 '''
 
+#Basic nested loop implementation.
 def draw_board(n):
     for i in range(8):
         for j in range(8):
@@ -18,8 +19,8 @@ def draw_board(n):
                 draw_white()
             else:
                 draw_black()
-#---
 
+#Split funciotn and nested conditionals
 def is_even(c):
     return c % 2 == 0
 
@@ -37,7 +38,6 @@ def draw_board2(n):
                 else:
                     draw_white()                
 
-#---
 
 #micro-optimizing to show off nested list comprehensions. - jdunck
 #  in the 1st row, make the odd checks black.
