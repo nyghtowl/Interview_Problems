@@ -33,15 +33,24 @@ def rotate_explain(matrix):
     for i in range(n):
         new_row = []
         for row in matrix:
-            row.append(row[i])
+            new_row.append(row[i])
         new_matrix.append(new_row[::-1]) # Reverse new_row before appending.
     
     return new_matrix
 
 
 def rotate_in_place(matrix):
-    # TODO rotate the matrix in place, without creating another matrix.
-    return False
+    # Rotate the matrix in place, without creating another matrix.
+    # Ideal for situations processing a large matrix with limited space.
+    n = len(matrix)
+    for i in range(n/2):
+        for j in range(n/2 + n%2):
+            swap = matrix[i][j]
+            for k in range(4):
+                swap, matrix[j][n-i-1] = matrix[j][n-i-1], swap
+                i, j = j, n - i - 1
+    
+    return matrix
 
 
 if __name__ == '__main__':
@@ -50,7 +59,20 @@ if __name__ == '__main__':
               [9, 10, 11, 12],
               [13, 14, 15, 16]]
     
+    odd_matrix = [[0, 1, 2, 3, 4],
+                  [5, 6, 7, 8, 9],
+                  [10, 11, 12, 13, 14],
+                  [15, 16, 17, 18, 19],
+                  [20, 21, 22, 23, 24]]
+
     print rotate(matrix)
     print rotate_with_zip(matrix)
     print rotate_explain(matrix)
     print rotate_in_place(matrix)
+
+    # Test odd matrix.
+    print rotate(odd_matrix)
+    print rotate_with_zip(odd_matrix)
+    print rotate_explain(odd_matrix)
+    print rotate_in_place(odd_matrix)
+
