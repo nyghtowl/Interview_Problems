@@ -2,25 +2,25 @@
 Depth First Search
 '''
 
-
 class Node_DFS():
     def __init__(self):
         self.val = val
         self.left = None
         self.right = None
 
+    #Return nodes in order of depth
     def dfs(n):
-        hold = ''
+        result = ''
         if not n:
             return
         else:
-            hold = '%r' % n.val
+            result = '%r' % n.val
             if n.left:
-                hold += '%r' % dfs(n.left)    
+                result += '%r' % dfs(n.left)    
             if n.right:
-                hold += '%r' % dfs(n.right)
+                result += '%r' % dfs(n.right)
 
-        return hold
+        return result
 
 #Build out the tree.
 n = Node('Lola')
