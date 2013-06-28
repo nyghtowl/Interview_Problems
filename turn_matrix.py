@@ -1,4 +1,42 @@
 #!/usr/bin/env python
+'''
+Given an 3x3 matrix, rotate the matrix by 90 degrees and return rotated matrix.
+Example:
+
+1 2 3
+4 5 6 
+7 8 9
+
+switch to 
+
+7 4 1
+8 5 2
+9 6 3
+
+'''
+
+
+#Set data structure as a list of coordinates.
+def flip_matrix(mat):
+    mid = int(len(matrix/6))
+    for i, coord in enumerate(matrix):
+        if i == 0:
+            pass
+        # if x is 1 then it just flips x & y
+        elif mid == coord[0]:
+            coord[0], coord[1] = coord[1], coord[0]
+        # if x is less than 1 then x becomes y and y becomes 2
+        elif mid > coord[1]:
+            coord[0] = coord[1]
+            coord[1] = mid + 1
+        # if x is greater than 1 then x becomes y and y becomes 1
+        elif mid < coord[0]:
+            coord[0] = coord[1]
+            coord[1] = mid - 1
+
+
+#Improved approach is new[x,y] = old [y,2-x]
+
 """
 Given an NxN matrix, rotate the matrix by 90 degrees and return rotated matrix.
 Example:
@@ -14,19 +52,16 @@ Example:
             [16, 12, 8, 4]]
 """
 
-
+# Short without zip.
 def rotate(matrix):
-    # Short without zip.
     return [[j[i] for j in matrix][::-1] for i in range(len(matrix))]
 
-
+# Python trick answer, returns an array with tuples. 
 def rotate_with_zip(matrix):
-    # Python trick answer, returns an array with tuples. 
     return zip(*matrix[::-1])
 
-
+# A expanded version to explain each step.
 def rotate_explain(matrix):
-    # A expanded version to explain each step.
     n = len(matrix)
     new_matrix = []
 
@@ -38,10 +73,9 @@ def rotate_explain(matrix):
     
     return new_matrix
 
-
+# Rotate the matrix in place, without creating another matrix.
+# Ideal for situations processing a large matrix with limited space.
 def rotate_in_place(matrix):
-    # Rotate the matrix in place, without creating another matrix.
-    # Ideal for situations processing a large matrix with limited space.
     n = len(matrix)
     for i in range(n/2):
         for j in range(n/2 + n%2):
