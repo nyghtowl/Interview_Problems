@@ -1,49 +1,35 @@
 '''
-Find a num in a list or a missing number between lists
+Find a num in a list 
 '''
 
-alist = [1, 2, 3, 4, 5, 6, 3]
-
-#return true if num exists in list
-def find_num(alist, num):
-    if num in alist:
+#Return true if num exists in list.
+def find_num(list1, num):
+    if num in list1:
         return True
+    return False
 
-print 1, find_num(alist, 3)
 
-#---
-
-#return index of the second occurance of a num in list
-def find_num2(alist, num):
-    count = 0
-    for x, n in enumerate(alist):
+#Return index of the second occurance of a num in list.
+def find_num2(list1, num):
+    count = result = 0
+    for x, n in enumerate(list1):
         if n == num:
             count += 1
             if count == 2:    
-                return x
+                result = x
             else:
-                print "Two occurances doesn't exist"
+                result = "Doesn't exist"
+    return result
 
-print 2, find_num2(alist, 3)
 
-#---
+#Test for find number variations 
+implementations = [find_num, find_num2]
+list1 = [5,4,1,2,8,3,-1,3,1]
 
-list1 = [5,4,7,2,1,8,3]
-list2 = [8,1,2,7,5,3]
+for impl in implementations:
+    print "trying %s" % impl
+    print "  f(list1, 0) == False or Doesn't exist: %s" % (impl(list1, 0) == False or impl(list1, 0) == "Doesn't exist")
+    print "  f(list1, 1) == True or 8: %s" % (impl(list1, 1) == True or impl(list1, 1) == 8)
+    print "  f(list1, 2) == True or Doesn't exist: %s" % (impl(list1, 2) == True or impl(list1, 2) == "Doesn't exist")
+    print "  f(list1, 3) == True or 7: %s" % (impl(list1, 3) == True or impl(list1, 3) == 7)
 
-#find a missing number when comparing two lists
-def miss_num(list1, list2):
-    
-    for i in list1:
-        if i not in list2:
-            return i
-
-print miss_num(list1, list2)
-
-#---
-
-#second variation to find a missing number by adding the values and subtracting
-def miss_num2(list1, list2):
-    return abs(sum(list1)-sum(list2))
-
-print miss_num2(list1, list2)
