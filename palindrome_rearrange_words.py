@@ -6,6 +6,7 @@ Output: Rearrange and print if can make a palindrome
 
 '''
 
+#First version using deque structure and separating functions to reorder words and work through the list of words
 
 def pal(word):
     a_dict = {}
@@ -160,7 +161,7 @@ class deque(object):
         result.__init__(deepcopy(tuple(self), memo))
         return result
 
-
+#Second version to place letter count in dict and then loop back through to create palindromes
 def compute_palindromes(words_list):
     for i, word in enumerate(words_list):
         count_dict = {}
@@ -198,7 +199,7 @@ def compute_palindromes(words_list):
         string = "".join(start)
         print string
 
-
+#Test section.
 pal('hello')
 palindrome(['talliat', 'eded', 'memo'])
 words = ["cecarar", "nono", "abbbbb"]
