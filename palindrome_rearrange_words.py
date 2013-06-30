@@ -93,11 +93,6 @@ def palindrome2(words_list):
 
     return pal_list
 
-def pal(word):
-    a_dict = {}
-    for i,letter in enumerate(word):
-        a_dict[letter] = a_dict.get(letter, 0) + 1
-
 
 #Test section.
 implementations = [palindrome, palindrome2]
