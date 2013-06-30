@@ -1,7 +1,9 @@
 '''
-palindrome part 2 - take in words, rearrange and print if can make a palindrome
+Palindrome Part 2 
 
-- full palindrome function may not be covering all cases...?
+Input: List of words
+Output: Rearrange and print if can make a palindrome
+
 '''
 
 
@@ -12,21 +14,9 @@ def pal(word):
     if   
     print a_dict
 
-pal('hello')
-
 def palindrome(words):
-    """
-    Forms a palindrome by rearranging :letters: if possible,
-    throwing a
-    :param letters: a suitable iterable, usually a string
-    :return: a string containing a palindrome or error if not
-    """
-    # result = []
-    # if len(words) <= 1:
-    #     print words
     for i, word in enumerate(words):
         print i, word
-    # counter = Counter(letters)
         counter = {}
         for j,letters in enumerate(word):
              counter[letters] = counter.get(letters, 0) + 1
@@ -170,7 +160,45 @@ class deque(object):
         result.__init__(deepcopy(tuple(self), memo))
         return result
 
+
+def compute_palindromes(words_list):
+    for i, word in enumerate(words_list):
+        count_dict = {}
+        for j, letter in enumerate(word):
+            if letter in count_dict:
+                count_dict[letter] += 1
+            else:
+                count_dict[letter] = 1
+        print count_dict
+
+        odd_count = 0
+        for key, value in count_dict.iteritems():
+            if value % 2 != 0:
+                odd_count +=1
+        if odd_count > 1:
+            print -1
+            return
+
+        start = []
+        end = []
+        middle = None   
+    
+        for key, value in count_dict.iteritems():
+            if value % 2 == 0:
+                val = int(value)/2
+                start.append(key * val)
+                end.append(key * val)
+            else:
+                middle = key
+    
+        if middle:
+            start.append(middle)
+        end.reverse()
+        start.extend(end)
+        string = "".join(start)
+        print string
+
+
+pal('hello')
 palindrome(['talliat', 'eded', 'memo'])
-
-# def pal4(word_list):
-
+words = ["cecarar", "nono", "abbbbb"]
