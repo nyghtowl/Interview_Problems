@@ -3,9 +3,9 @@ Deviation Problem
 
 Input: list of integer elements and an integer (length of sequences)
 
-Consider all the sequences of consecutive elements in the list.For each sequence we compute the difference between the maximum and the minimum value of the elements in that sequence and name it the deviation.
+Consider all the sequences of consecutive elements in the list.For each sequence, compute the difference between the maximum and the minimum value of the elements in that sequence and name it the deviation.
 
-Output: Write a function that computes the maximum value among the deviations of all the sequences considered above and print the value of the standard output 
+Output: Write a function that computes and returns the maximum value among the deviations of all the sequences  
 
 Constraints: 
 * List contains up to 100,000 elements. 
@@ -18,6 +18,8 @@ Example: The sequences of length 3 are...
     9 4 7 having the median 5 (the minimum value in the sequence is 4 and the maximum is 9)
     7 4 1 having the median 6 (the minimum value in the sequence is 1 and the maximum is 7)
     The maximum value among all medians is 6
+
+Expand: For negative numbers and/or odd sements
 '''
 
 def max_deviation(int_list,seq_len):
