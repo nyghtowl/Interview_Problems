@@ -5,7 +5,10 @@ Fn = Fn-1 + Fn-2
 
 Given a number, provide the fibonacci result in the sequence starting with 0
 
-Challenge: account for negative or fraction numbers 
+Challenge: 
+* Account for negative or fraction numbers 
+* Do it more efficiently (memoization)?
+* Do it with only O(1) space (iteratively using a for loop)
 
 '''
 
@@ -29,7 +32,7 @@ def fib_recursive(num):
         return fib_recursive(num-1) + fib_recursive(num-2)  
 
 
-#test 
+#Test 
 implementations = [fib_iteration, fib_recursive]
 
 for impl in implementations:
