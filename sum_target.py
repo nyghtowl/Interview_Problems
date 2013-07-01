@@ -1,6 +1,8 @@
 
 '''
 Print out if the list can sum to target
+
+Challenge: For a list of numbers and a target number, return true if any two numbers add to the target number
 '''
 
 def sum_target(target, list):
