@@ -13,9 +13,9 @@ from collections import deque
 #Use deque structure to solve.
 def palindrome(words):
     pal_list = []
-    if len(words) <= 1 and len(words[0]) <=1:
-        pal_list.append(words)
-    
+    if len(words) <= 1 and len(words[0]) <= 1 :
+        pal_list.append(''.join(words))
+        
     #Loop through words.
     for i, word in enumerate(words):
         
@@ -99,14 +99,16 @@ implementations = [palindrome, palindrome2]
 words = ['cecarar', 'nono', 'abbbbb']
 words2 = ['talliat', 'eded', 'memo']
 words3 = ['hello']
+words4 = ['']
 
 result = ['rcaeacr', 'noon', -1]
 result2 = ['ltaiatl', 'deed', -1]
 result3 = [-1]
+result4 = ['']
 
 for impl in implementations:
     print "trying %s" % impl
     print "  f(words1) == result: %s" % (impl(words) == result)
     print "  f(words2) == result2: %s" % (impl(words2) == result2)
     print "  f(words3) == result3: %s" % (impl(words3) == result3)
-
+    print "  f(words4) == result4: %s" % (impl(words4) == result4)
