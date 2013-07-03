@@ -25,11 +25,14 @@ def find_num2(list1, num):
 #Test for find number variations 
 implementations = [find_num, find_num2]
 list1 = [5,4,1,2,8,3,-1,3,1]
+result1 = True
+result2 = False
+result3 = "Doesn't exist"
 
 for impl in implementations:
     print "trying %s" % impl
-    print "  f(list1, 0) == False or Doesn't exist: %s" % (impl(list1, 0) == False or impl(list1, 0) == "Doesn't exist")
-    print "  f(list1, 1) == True or 8: %s" % (impl(list1, 1) == True or impl(list1, 1) == 8)
-    print "  f(list1, 2) == True or Doesn't exist: %s" % (impl(list1, 2) == True or impl(list1, 2) == "Doesn't exist")
-    print "  f(list1, 3) == True or 7: %s" % (impl(list1, 3) == True or impl(list1, 3) == 7)
+    print "  f(list1, 0) == False or Doesn't exist: %s" % (impl(list1, 0) == result2 or impl(list1, 0) == result3)
+    print "  f(list1, 1) == True or 8: %s" % (impl(list1, 1) == result1 or impl(list1, 1) == 8)
+    print "  f(list1, 2) == True or Doesn't exist: %s" % (impl(list1, 2) == True or impl(list1, 2) == result3)
+    print "  f(list1, 3) == True or 7: %s" % (impl(list1, 3) == result1 or impl(list1, 3) == 7)
 
