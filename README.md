@@ -12,6 +12,8 @@ being added.
 Hackbright students and mentors are making contributions to the repository.
 Contributions are always welcomed.
 
+An additional resource for interview questions and answers can be found at: https://github.com/mmihaljevic/algortihms_challenges.
+
 To use:
 ```bash
     # Clone repsitory.
