@@ -2,7 +2,9 @@
 '''
 Print out if the list can sum to target
 
-Challenge: For a list of numbers and a target number, return true if any two numbers add to the target number
+Challenge: 
+*For a list of numbers and a target number, return true if any two numbers add to the target number
+*Given a list of numbers, return a set of 3 numbers that add to 0.
 '''
 
 def sum_target(target, list):
