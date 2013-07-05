@@ -1,3 +1,7 @@
+'''
+Original problem/solution submission from jofusa
+'''
+
 from sentence_sort import *
 
 
