@@ -1,5 +1,7 @@
 '''
 Reverse a string, sentenece or link.
+
+Note: claudiay contributed additional example and test
 '''
 
 # Simple example of reversing a string.
