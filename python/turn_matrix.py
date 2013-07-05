@@ -50,6 +50,8 @@ Example:
             [14, 10, 6, 2],
             [15, 11, 7, 3],
             [16, 12, 8, 4]]
+
+Note: claudiay contributed additional example and test
 """
 
 # Short without zip.
