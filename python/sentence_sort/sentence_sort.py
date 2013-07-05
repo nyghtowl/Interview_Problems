@@ -6,6 +6,7 @@ Example:
  Input:  "This is a fun interview"
  Output: "a is fun this interview"
 
+Original problem/solution submission from jofusa
 """
 
 
