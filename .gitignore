@@ -1,4 +1,4 @@
 *.pyc
 temp*
 .DS_Store
-
+.html

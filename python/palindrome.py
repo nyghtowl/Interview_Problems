@@ -3,6 +3,8 @@ Palindrome
 
 Input: word
 Output: true if a palindrome
+
+Note: jofusa contributed additional example and test
 '''
 
 #Recursive solution.

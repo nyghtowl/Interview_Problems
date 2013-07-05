@@ -11,7 +11,7 @@ Example:
 
 Note: It does not generate any new words that are not in the input.
 
-Original problem/solution submission from caludiay
+Original problem/solution submission from claudiay
 """
 
 def anagram(words):
