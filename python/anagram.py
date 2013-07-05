@@ -9,7 +9,9 @@ Example:
     Input: ['cat', 'tablet', 'wolf', 'act', 'battle', 'flow', 'batlet', 'food']
     Output: [['cat', 'act'], ['tablet', 'battle', 'batlet'], ['wolf', 'flow']]
 
-Note: It does not generate any new words that are not in the input
+Note: It does not generate any new words that are not in the input.
+
+Original problem/solution submission from caludiay
 """
 
 def anagram(words):
