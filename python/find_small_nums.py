@@ -28,5 +28,3 @@ result = [-1,1,3]
 for impl in implementations:
     print "trying %s" % impl
     print "  f(%s) == %s: %s" % (impl, result, impl(num_list,num_vals) == result)
-
-print small_sub(num_list, num_vals)
