@@ -27,7 +27,7 @@ def strstr(needle, haystack):
     pass
 
 
-#WIP
+#WIP - need to finish
 def match(str1,str2):
     l_str1 = list(str1)
     l_str2 = list(str2)
@@ -69,6 +69,8 @@ def match2(s1,s2):
 #check each subset of the main string whether the last character is
 #included. If not then shift out another subset. - O(n-m)
 
+#Note: still not functioning properly - need to account for end of string
+
 def match3(s1,s2):
     j_d = {}
     for c in s1:
@@ -106,8 +108,8 @@ def match3(s1,s2):
     return found
 
 #Test section.
-str1 = 'Cat goes postal'
-str1a = 'postal'
+str1 = 'Cat goes crazy'
+str1a = 'crazy'
 str1b = 'Cat'
 
 str2 = 'this is a hash'
