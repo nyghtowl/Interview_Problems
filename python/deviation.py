@@ -59,8 +59,19 @@ def max_deviation3(int_list, seq_len):
     deviations = [(max(subseq) - min(subseq)) for subseq in subseqs]
     return max(deviations)
 
+#(Remember that list comprehensions are like loops and they are running on a list len(N-M).
+# Within that, max/min are also loops running on the shorter O(M) sequences.)
+
+# We can improve slightly by switching to generators so we don't materialize all the
+# intermediate structures until needed: (This has the same runtime complexity, but uses less memory.)
+def max_deviation4(int_list, seq_len):
+    last_start_bound = 1 + len(int_list) - seq_len
+    subseqs = (int_list[i:i+seq_len] for i in xrange(0, last_start_bound))
+    deviations = ((max(subseq) - min(subseq)) for subseq in subseqs)
+    return max(deviations)
+
 #Tests
-implementations = [max_deviation, max_deviation2, max_deviation3]
+implementations = [max_deviation, max_deviation2, max_deviation3, max_deviation4]
 int_list = [1, 2, 3, 4, 5, 6]
 seq_len = 2
 result = 1
