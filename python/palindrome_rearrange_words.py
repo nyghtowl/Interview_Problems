@@ -8,7 +8,8 @@ Output: Rearrange each word if can be a palindrome, otherwise replace with -1 an
 
 
 
-from collections import deque
+from collections import deque, defaultdict
+from python.palindrome import pal2
 
 #Use deque structure to solve.
 def palindrome(words):
@@ -94,8 +95,53 @@ def palindrome2(words_list):
     return pal_list
 
 
+def palindrome3(words_list):
+    results = []
+    for word in words_list:
+        evens = defaultdict(int)
+        odds = defaultdict(int)
+        for c in word:
+            # count letters but also swap them back and forth for easy checking
+            # of the # of odds later.
+            if c in odds:
+                left = evens
+                right = odds
+            else:
+                left = odds
+                right = evens
+
+            left[c] = right[c] + 1
+            del right[c]
+
+        def fail():
+            results.append(-1)
+
+        # if the word is len-even, then there must
+        # be no odd-occurring letters - otherwise it can't be
+        # a palindrome.
+        if len(word) % 2 == 0:
+            if len(odds) != 0:
+                fail()
+                continue
+            center = ""
+        else:
+            # ok, odd-length, but still we must have only one odd.
+            if len(odds) > 1:
+                fail()
+                continue
+            center = odds.keys()[0] * odds.values()[0]
+        # build the left half, then join it to the center and the left's reverse:
+        left = []
+        for char, count in evens.items():
+            left.append(char * (count/2))
+        left = "".join(left)
+        # and that's a final palindrome:
+        results.append(left + center + left[::-1])
+    return results
+
+
 #Test section.
-implementations = [palindrome, palindrome2]
+implementations = [palindrome, palindrome2, palindrome3]
 words = ['cecarar', 'nono', 'abbbbb']
 words2 = ['talliat', 'eded', 'memo']
 words3 = ['hello']
@@ -106,9 +152,19 @@ result2 = ['ltaiatl', 'deed', -1]
 result3 = [-1]
 result4 = ['']
 
+def verify(actual, expected):
+    for i, val in enumerate(actual):
+        if val == -1:
+            if expected[i] != -1:
+                return False
+            continue
+        if pal2(val) != pal2(expected[i]):
+            return False
+    return True
+
 for impl in implementations:
     print "trying %s" % impl
-    print "  f(words1) == result: %s" % (impl(words) == result)
-    print "  f(words2) == result2: %s" % (impl(words2) == result2)
-    print "  f(words3) == result3: %s" % (impl(words3) == result3)
-    print "  f(words4) == result4: %s" % (impl(words4) == result4)
+    print "  f(words1) == result: %s" % (verify(impl(words), result))
+    print "  f(words2) == result2: %s" % (verify(impl(words2), result2))
+    print "  f(words3) == result3: %s" % (verify(impl(words3), result3))
+    print "  f(words4) == result4: %s" % (verify(impl(words4), result4))
