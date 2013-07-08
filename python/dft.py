@@ -11,7 +11,7 @@ class Node():
         self.left = None
         self.right = None
 
-    #Method leverages string holder for results but could be a list
+    #Recursive solution and method leverages string results holder for results - list is an alternative
     def dft(n):
         hold = ''
         if not n:
