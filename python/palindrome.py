@@ -32,21 +32,22 @@ def pal4(word):
     stripped_word = word.replace(' ','').lower()
     return stripped_word == stripped_word[::-1]
 
-#Test
-s = 'rowme'
-s2 = 'Lion oil'
-s3 = 'a man a plan a canal Panama'
+if __name__ == '__main__':
+    #Test
+    s = 'rowme'
+    s2 = 'Lion oil'
+    s3 = 'a man a plan a canal Panama'
 
-result = False
-result2 = True
+    result = False
+    result2 = True
 
-implementations = [pal,pal2,pal4]
-implementations2 = [pal4]
+    implementations = [pal,pal2,pal4]
+    implementations2 = [pal4]
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "f(s) == %s: %s" % (result,(impl(s) == result))
+    for impl in implementations:
+        print "trying %s" % impl
+        print "f(s) == %s: %s" % (result,(impl(s) == result))
 
-for impl in implementations2:
-    print "f(s2) == %s: %s" % (result2,(impl(s2) == result2))
-    print "f(s3) == %s: %s" % (result2,(impl(s3) == result2))
+    for impl in implementations2:
+        print "f(s2) == %s: %s" % (result2,(impl(s2) == result2))
+        print "f(s3) == %s: %s" % (result2,(impl(s3) == result2))
