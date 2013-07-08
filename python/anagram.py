@@ -56,11 +56,15 @@ def anagram2(words):
 
 if __name__ == '__main__':
 
+    #Test
+    implementations = [anagram,anagram2]
+
     words_input = ['cat', 'tablet', 'wolf', 'act', 'battle', 'flow', 'batlet', 'food']
-    anagram_result = ['tablet', 'battle', 'batlet'], ['wolf', 'flow'], ['cat', 'act']
+    result = [['tablet', 'battle', 'batlet'], ['wolf', 'flow'], ['cat', 'act']]
+
+    for impl in implementations:
+        print "trying %s" % impl
+        print "  f(%s) returns %s: %s" % (words_input,result,(impl(words_input) == result))
 
 
-    print anagram(['cat', 'tablet', 'wolf', 'act', 'battle', 'flow', 'batlet',
-                    'food'])
-    print anagram2(['cat', 'tablet', 'wolf', 'act', 'battle', 'flow', 'batlet',
-                    'food'])
+
