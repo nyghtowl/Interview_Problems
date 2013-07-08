@@ -1,5 +1,9 @@
 '''
-Depth First Search
+Depth First Traversal
+
+Input: Create tree
+Output: Print each value on each node traversing the tree by depth and from the left first
+
 '''
 class Node():
     def __init__(self, val):
@@ -7,16 +11,17 @@ class Node():
         self.left = None
         self.right = None
 
-    def dfs(n):
+    #Method leverages string holder for results but could be a list
+    def dft(n):
         hold = ''
         if not n:
             return
         else:
             hold = '%s ' % n.val
             if n.left:
-                hold += '%s' % n.left.dfs()    
+                hold += '%s' % n.left.dft()    
             if n.right:
-                hold += '%s' % n.right.dfs()
+                hold += '%s' % n.right.dft()
 
         return hold
 
@@ -40,8 +45,8 @@ if __name__ == '__main__':
     n.left.right = n7
 
     #Test
-    implementations = [n.dfs]
-    
+    implementations = [n.dft]
+
     result = 'Lola Ann Louis Gertrude Rose Janice Harriet '
 
     for impl in implementations:
