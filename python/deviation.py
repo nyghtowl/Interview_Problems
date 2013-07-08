@@ -70,17 +70,18 @@ def max_deviation4(int_list, seq_len):
     deviations = ((max(subseq) - min(subseq)) for subseq in subseqs)
     return max(deviations)
 
+if __name__ == '__main__':
 #Tests
-implementations = [max_deviation, max_deviation2, max_deviation3, max_deviation4]
-int_list = [1, 2, 3, 4, 5, 6]
-seq_len = 2
-result = 1
+    implementations = [max_deviation, max_deviation2, max_deviation3, max_deviation4]
+    int_list = [1, 2, 3, 4, 5, 6]
+    seq_len = 2
+    result = 1
 
-int_list2 = [6, 9, 4, 9, 4, 7, 7, 4, 1]
-seq_len2 = 3
-result2 = 6
+    int_list2 = [6, 9, 4, 9, 4, 7, 7, 4, 1]
+    seq_len2 = 3
+    result2 = 6
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "  f(int_list, seq_len) == result: %s" % (impl(int_list, seq_len) == result)
-    print "  f(int_list2, seq_len2) == result2: %s" % (impl(int_list2, seq_len2) == result2)
+    for impl in implementations:
+        print "trying %s" % impl
+        print "  f(int_list, seq_len) == result: %s" % (impl(int_list, seq_len) == result)
+        print "  f(int_list2, seq_len2) == result2: %s" % (impl(int_list2, seq_len2) == result2)
