@@ -48,7 +48,7 @@ class Node():
         return ' '.join(ans)
 
 
-    #Variation that prints each level on a separate line.
+    #Variation that prints one line breadth.
     def bft3(self):
         parent = [self]
         ans = []
@@ -61,7 +61,6 @@ class Node():
                 if node.right:
                     children.append(node.right) 
             parent = children
-            print ans.append('\n')
         return ' '.join(ans)
 
 
@@ -84,9 +83,19 @@ if __name__ == '__main__':
     n.left.left = n6
     n.left.right = n7
 
-    result1 = 'Lola Ann Rose Louis Gertrude Janice Harriet'
-    result2 = 'Lola \n Ann Rose \n Louis Gertrude Janice Harriet'
 
-    print "n.bft() == %s : %s" % (result1, (n.bft() == result1))
-    print "n.bft2() == \n %s" % (n.bft2())
-    print "n.bft3() == \n %s" % (n.bft3())
+    #Test
+    implementations = [n.bft,n.bft3]
+    implementations2 = [n.bft2]
+
+    result1 = 'Lola Ann Rose Louis Gertrude Janice Harriet'
+    result2 = 'Lola \n Ann Rose \n Louis Gertrude Janice Harriet \n'
+
+    for impl in implementations:
+        print "trying %s" % impl
+        print " f(tree) == %s: %s" % (result1, impl() == result1)
+
+
+    for impl in implementations2:
+        print "trying %s" % impl
+        print " f(tree) == %s: %s" % (result2, impl() == result2)
