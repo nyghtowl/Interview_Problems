@@ -1,5 +1,8 @@
 '''
-Find list intersection
+List Intersection
+
+Input: 2 lists
+Output: points of intersection between 2 lists
 '''
 
 #Return list of intersections between 2 lists - O(n^2) or O(nm)
