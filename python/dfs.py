@@ -5,24 +5,31 @@ Input: tree of names and search for existance of one name
 Output: true or false if the name is found
 
 '''
+class Person():
+    def __init__(self, birthday):
+        self.birthday = birthday 
+    def __cmp__(self, other):
+        return cmp(self.birthday, other.birthday)
+
 class Node():
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
-
-    #Recursive solution 
-    def dfs(n, person):
-        if not n:
+    def add(value):
+        pass # handle adding nodes
+    #Recursive solution - O(n)
+    def dfs(self, person):
+        if not self.val:
             return False
         else:
-            if n.val == person:
+            if self.val == person:
                 return True
             else:
-                if n.left:
-                    return n.left.dfs(person)
-                if n.right:
-                    return n.right.dfs(person)
+                if self.left:
+                    return self.left.dfs(person)
+                if self.right:
+                    return self.right.dfs(person)
 
 
 if __name__ == '__main__':
