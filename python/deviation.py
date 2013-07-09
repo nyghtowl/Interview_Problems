@@ -55,7 +55,7 @@ def max_deviation2(int_list,seq_len):
 # Just knocking this out, pythonically and not worrying about the performance too much:
 def max_deviation3(int_list, seq_len):
     last_start_bound = 1 + len(int_list) - seq_len
-    subseqs = [int_list[i:i+seq_len] for i in range(0, last_start_bound)]
+    subseqs = [int_list[i:i+seq_len] for i in range(0, last_start_bound, seq_len)]
     deviations = [(max(subseq) - min(subseq)) for subseq in subseqs]
     return max(deviations)
 
@@ -66,7 +66,7 @@ def max_deviation3(int_list, seq_len):
 # intermediate structures until needed: (This has the same runtime complexity, but uses less memory.)
 def max_deviation4(int_list, seq_len):
     last_start_bound = 1 + len(int_list) - seq_len
-    subseqs = (int_list[i:i+seq_len] for i in xrange(0, last_start_bound))
+    subseqs = (int_list[i:i+seq_len] for i in xrange(0, last_start_bound, seq_len))
     deviations = ((max(subseq) - min(subseq)) for subseq in subseqs)
     return max(deviations)
 
@@ -81,7 +81,13 @@ if __name__ == '__main__':
     seq_len2 = 3
     result2 = 6
 
+    int_list3 = [1, 2, 3, 4, 5, 6]
+    seq_len3 = 5
+    result3 = 4
+
+
     for impl in implementations:
         print "trying %s" % impl
         print "  f(int_list, seq_len) == result: %s" % (impl(int_list, seq_len) == result)
         print "  f(int_list2, seq_len2) == result2: %s" % (impl(int_list2, seq_len2) == result2)
+        print "  f(int_list3, seq_len3) == result3: %s" % (impl(int_list3, seq_len3) == result3)
