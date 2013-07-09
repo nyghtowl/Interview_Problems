@@ -41,57 +41,30 @@ def sum_target3(target, num_list):
     for index, elem in enumerate(num_list):
         # for i in range(len(ex[index+1:])):
         for i in num_list[index+1:]:
-            if (elem + i) == 0:
-                pairs.append((elem, i))
+            if (elem + i) == target:
+                if [elem, i] not in pairs and [i, elem] not in pairs:
+                    pairs.append([elem,i])
     return pairs
 
-#Broken down into multiple functions - O(n^2)
-def sum_num(num_1, num_2):
-    return (num_1 + num_2 == 0)
+#Broken down into multiple functions. - O(n^2)
+#Finds if the numbers sum to 0.
+def sum_num(target, num_1, num_2):
+    return (num_1 + num_2 == target)
 
-def compare_val(num, num_list):
+#
+def compare_val(target, val, num_list):
     for i in num_list:
-        if sum_num(target,i):
-    return (target, i)
+        if sum_num(target,val,i):
+                return [val, i]
 
 def sum_target4(target, num_list):
     pairs = []
     for index, val in enumerate(num_list):
-        pairs.append(compare_val(val, l[index+1:]))
+        if compare_val(target, val, num_list[index+1:]):
+            a, b = compare_val(target, val, num_list[index+1:])
+            if [a, b] not in pairs and [b, a] not in pairs:
+                pairs.append(compare_val(target, val, num_list[index+1:]))
     return pairs
-
-
-'''
-recusive example - question on whether this works
-'''
-# pairs = []
-# l = [0,-1,5,3,1]
-
-# def sum_recursive(l):
-#     if len(l) < 2:
-#         return 
-
-#     elif (len(l) == 2) and (l[0] + l[1] == 0):
-#         return (l[0],l[1])
-
-#     else:
-
-#         return (l[0] + sum_recursive(l[1:]) == 0)
- 
-
-# len(l) = 5
-# l[0] = 0
-# l[1] = -1
-# l[1:] = [-1, 5, 3, 1]
-# l[0] + sum_recursive = ?
-
-# len(l) = 4
-
-
-# target = 0
-
-# pick and hold 1 element and loop through the rest of the list and add to compare if works
-
 
 
 #Test section.
@@ -115,11 +88,12 @@ for impl in implementations:
 
 #List of values results
 result3 = []
-result4 = [3,5,7,1]
+result4 = [[5,3],[7,1],[2,6]]
 result5 = []
 
 implementations2 = [sum_target3, sum_target4]
 for impl in implementations2:
-    print "f(%s) == %s: %s" % (target, impl(target, num_list) == result3)
-    print "f(%s) == %s: %s" % (target2, impl(target2, num_list) == result4)
-    print "f(%s) == %s: %s" % (target2, impl(target2, num_list) == result5)
+    print "f(%s) == %s: %s" % (num_list, target, impl(target, num_list) == result3)
+    print "f(%s) == %s: %s" % (num_list, target2, impl(target2, num_list) == result4)
+    print "f(%s) == %s: %s" % (num_list, target3, impl(target3, num_list) == result5)
+    
