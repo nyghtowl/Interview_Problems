@@ -13,7 +13,7 @@ class Node():
         self.right = None
 
 
-    #Prints each value moving across each layer
+    #Prints each value moving across each layer. O(n)
     def bft(self):
         q = []
         ans = []
@@ -28,7 +28,7 @@ class Node():
         return ' '.join(ans)
 
 
-    #Prints each level on a separate line.
+    #Prints each level on a separate line. - O(n)
     def bft2(self):
         q = []
         q2 = []
@@ -48,7 +48,7 @@ class Node():
         return ' '.join(ans)
 
 
-    #Variation that prints one line breadth.
+    #Variation that prints one line breadth. - O(n)
     def bft3(self):
         parent = [self]
         ans = []
