@@ -1,5 +1,5 @@
 '''
-Subset 
+Find Subset 
 
 Input: list of intergers and number of values to return
 Output: list contains the number small values in the list
