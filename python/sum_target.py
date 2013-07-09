@@ -39,7 +39,6 @@ def sum_target2(target, num_list):
 def sum_target3(target, num_list):
     pairs = []
     for index, elem in enumerate(num_list):
-        # for i in range(len(ex[index+1:])):
         for i in num_list[index+1:]:
             if (elem + i) == target:
                 if [elem, i] not in pairs and [i, elem] not in pairs:
@@ -66,6 +65,16 @@ def sum_target4(target, num_list):
                 pairs.append(compare_val(target, val, num_list[index+1:]))
     return pairs
 
+#O(n)
+def sum_target5(target, num_list):
+    pairs = {}
+
+    # target - val in list
+    for val in num_list:
+        x = target - val
+        if x in num_list and x not in pairs:
+            pairs[val] = x
+    return pairs
 
 #Test section.
 num_list = [5,3,5,7,1,2,5,6]
@@ -81,6 +90,7 @@ result2 = False
 implementations = [sum_target, sum_target2]
 
 for impl in implementations:
+    print "trying %s" % impl
     print "f(%s) == []: %s" % (target, impl(target, num_list) == result2)
     print "f(%s) == [5,3] or [7,1]: %s" % (target2, impl(target2, num_list) == result)
     print "f(%s) == []: %s" % (target3, impl(target3, num_list) == result2)
@@ -93,7 +103,15 @@ result5 = []
 
 implementations2 = [sum_target3, sum_target4]
 for impl in implementations2:
+    print "trying %s" % impl
     print "f(%s) == %s: %s" % (num_list, target, impl(target, num_list) == result3)
     print "f(%s) == %s: %s" % (num_list, target2, impl(target2, num_list) == result4)
     print "f(%s) == %s: %s" % (num_list, target3, impl(target3, num_list) == result5)
-    
+
+
+result6 = {2: 6, 5: 3, 7: 1}
+implementations2 = [sum_target5]
+
+for impl in implementations2:
+    print "trying %s" % impl
+    print "f(%s) == %s: %s" % (num_list, target2, impl(target2, num_list) == result6)
