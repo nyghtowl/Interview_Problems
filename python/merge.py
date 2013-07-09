@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 '''
-Mergesort example.
-Sort an array of items in O(n log n).
+Mergesort 
+
+Input: words
+Output: sorted array of items in O(n log n)
 
 Challenge:
     How to complete mergesort in constant space?
