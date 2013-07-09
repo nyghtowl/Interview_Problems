@@ -11,9 +11,7 @@ class Node():
         self.left = None
         self.right = None
 
-# compare top node to see if value and if not then loop through each node
-#focus on left most first to get to the solution
-
+    #Recursive solution 
     def dfs(n, person):
         if not n:
             return False
