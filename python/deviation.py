@@ -22,6 +22,7 @@ Example: The sequences of length 3 are...
 Expand: For negative numbers and/or odd sements
 '''
 
+#O(nm)
 def max_deviation(int_list,seq_len):
     marker = 0
     dev_list = []
@@ -32,6 +33,7 @@ def max_deviation(int_list,seq_len):
         marker += seq_len
     return max(dev_list)
 
+#Looping based on size of segment. - O(n)
 def max_deviation2(int_list,seq_len):
     dev_list = []
 
@@ -49,26 +51,26 @@ def max_deviation2(int_list,seq_len):
 
 # Let's define N as the length of the overall sequence and M is the length of the subsequence.
 #
-# In a simple approach, where we build a subsequence for each part, we will build O(N - m) subsequences.
-# We will then run max() and min() (which are O(M)) N-M times, so the runtime of this implementation is O(NM).
+# In a simple approach, where we build a subsequence for each part, we will build O(N/M) subsequences.
+# We will then run max() and min() (which are O(M)) N/M times, so the runtime of this implementation is O(N).
 #
 # Just knocking this out, pythonically and not worrying about the performance too much:
+#Memory (e.g. space complexity) is O(n).
 def max_deviation3(int_list, seq_len):
     last_start_bound = 1 + len(int_list) - seq_len
     subseqs = [int_list[i:i+seq_len] for i in range(0, last_start_bound, seq_len)]
     deviations = [(max(subseq) - min(subseq)) for subseq in subseqs]
     return max(deviations)
 
-#(Remember that list comprehensions are like loops and they are running on a list len(N-M).
-# Within that, max/min are also loops running on the shorter O(M) sequences.)
 
 # We can improve slightly by switching to generators so we don't materialize all the
-# intermediate structures until needed: (This has the same runtime complexity, but uses less memory.)
+# intermediate structures until needed: (This has the same runtime complexity, but uses less memory.) Space complexity is O(n) and memory is O(N/M).
 def max_deviation4(int_list, seq_len):
     last_start_bound = 1 + len(int_list) - seq_len
     subseqs = (int_list[i:i+seq_len] for i in xrange(0, last_start_bound, seq_len))
     deviations = ((max(subseq) - min(subseq)) for subseq in subseqs)
     return max(deviations)
+
 
 if __name__ == '__main__':
 #Tests
