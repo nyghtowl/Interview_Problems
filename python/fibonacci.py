@@ -3,7 +3,8 @@ Fibonacci - each number equals the sum of the two preceding numbers.
 
 Fn = Fn-1 + Fn-2
 
-Given a number, provide the fibonacci result in the sequence starting with 0
+Input: number
+Output: fibonacci result in the sequence starting with 0
 
 Challenge: 
 * Account for negative or fraction numbers 
