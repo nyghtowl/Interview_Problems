@@ -1,5 +1,9 @@
 '''
-Find a num in a list 
+Find Num 
+
+Input: list of integers and target number
+Output: If the number exists and the index of the number
+
 '''
 
 #Return true if num exists in list.
@@ -25,6 +29,7 @@ def find_num2(list1, num):
 #Test for find number variations 
 implementations = [find_num, find_num2]
 list1 = [5,4,1,2,8,3,-1,3,1]
+
 result1 = True
 result2 = False
 result3 = "Doesn't exist"
