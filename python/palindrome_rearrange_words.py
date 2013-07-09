@@ -142,33 +142,33 @@ def palindrome3(words_list):
         results.append(left + center + left[::-1])
     return results
 
+if __name__ == '__main__':
+    #Test section.
+    implementations = [palindrome, palindrome2, palindrome3]
+    words = ['cecarar', 'nono', 'abbbbb']
+    words2 = ['talliat', 'eded', 'memo']
+    words3 = ['hello']
+    words4 = ['']
 
-#Test section.
-implementations = [palindrome, palindrome2, palindrome3]
-words = ['cecarar', 'nono', 'abbbbb']
-words2 = ['talliat', 'eded', 'memo']
-words3 = ['hello']
-words4 = ['']
+    result = ['rcaeacr', 'noon', -1]
+    result2 = ['ltaiatl', 'deed', -1]
+    result3 = [-1]
+    result4 = ['']
 
-result = ['rcaeacr', 'noon', -1]
-result2 = ['ltaiatl', 'deed', -1]
-result3 = [-1]
-result4 = ['']
-
-#Function to check if its a palindrome despite the order of the letters.
-def verify(actual, expected):
-    for i, val in enumerate(actual):
-        if val == -1:
-            if expected[i] != -1:
+    #Function to check if its a palindrome despite the order of the letters.
+    def verify(actual, expected):
+        for i, val in enumerate(actual):
+            if val == -1:
+                if expected[i] != -1:
+                    return False
+                continue
+            if pal2(val) != pal2(expected[i]):
                 return False
-            continue
-        if pal2(val) != pal2(expected[i]):
-            return False
-    return True
+        return True
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "  f(words1) == result: %s" % (verify(impl(words), result))
-    print "  f(words2) == result2: %s" % (verify(impl(words2), result2))
-    print "  f(words3) == result3: %s" % (verify(impl(words3), result3))
-    print "  f(words4) == result4: %s" % (verify(impl(words4), result4))
+    for impl in implementations:
+        print "trying %s" % impl
+        print "  f(words1) == result: %s" % (verify(impl(words), result))
+        print "  f(words2) == result2: %s" % (verify(impl(words2), result2))
+        print "  f(words3) == result3: %s" % (verify(impl(words3), result3))
+        print "  f(words4) == result4: %s" % (verify(impl(words4), result4))
