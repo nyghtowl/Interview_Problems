@@ -1,5 +1,8 @@
 '''
-Flatten lists
+Flatten Lists
+
+Input: multiple Lists
+Output: contcatenation of lists into one
 '''
 
 def flatten_list(l):
