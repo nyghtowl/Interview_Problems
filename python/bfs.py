@@ -1,7 +1,9 @@
 '''
-Breadth First Search & Breadth First Traversal
+Breadth First Search 
 
-Output: printing out results of the tree
+Input: tree and value to search for
+
+Output: Breadth first search for a specified value in tree
 '''
 
 
@@ -11,58 +13,20 @@ class Node():
         self.left = None
         self.right = None
 
-
-    #Prints each value moving across each layer
-    def bft(self):
-        q = []
-        ans = []
-        q.append(self)
-        while q:
-            n = q.pop(0)
-            ans.append(n.val)
-            if n.left:
-                q.append(n.left)
-            if n.right:
-                q.append(n.right)
-        return ' '.join(ans)
-
-
-    #Prints each level on a separate line.
-    def bft2(self):
-        q = []
-        q2 = []
-        ans = []
-        q.append(self)
-        while q:
-            n = q.pop(0)
-            ans.append(n.val)
-            if n.left:
-                q2.append(n.left)
-            if n.right:
-                q2.append(n.right)
-            if len(q) == 0:
-                q = q2
-                q2 =[]
-                ans.append('\n')
-        return ' '.join(ans)
-
-
-    #Variation that prints each level on a separate line.
-    def bft3(self):
-        parent = [self]
-        ans = []
-        while parent:
-            children = []
-            for i, node in enumerate(parent):
-                ans.append(node.val)
-                if node.left:
-                    children.append(node.left)
-                if node.right:
-                    children.append(node.right) 
-            parent = children
-            print ans.append('\n')
-        return ' '.join(ans)
-
+    def bfs(n, person):
+        tree = []
+        tree.append(n)
+        ans = False
+        while tree:
+            n = tree.pop(0)
+            if person == n.val:
+                ans = True
+            else:
+                if n.left:
+                    tree.append(n.left)
+                if n.right:
+                    tree.append(n.right)
+        return ans
 
 
 #Run, build & test the tree
@@ -83,10 +47,17 @@ if __name__ == '__main__':
     n.left.left = n6
     n.left.right = n7
 
-    result1 = 'Lola Ann Rose Louis Gertrude Janice Harriet'
-    result2 = 'Lola \n Ann Rose \n Louis Gertrude Janice Harriet'
+  #Test
+    implementations = [n.bfs]
 
-    print "n.bft() == %s : %s" % (result1, (n.bft() == result1))
-    print "n.bft2() == \n %s" % (n.bft2())
-    print "n.bft3() == \n %s" % (n.bft3())
+    person_search = 'Louis'
+    person_search2 = 'George'
+
+    result = True
+    result2 = False
+
+    for impl in implementations:
+        print "trying %s" % impl
+        print " f(%s) exists: %s" % (person_search, impl(person_search) == result)
+        print " f(%s) does not exist: %s" % (person_search2, impl(person_search2) == result2)
 
