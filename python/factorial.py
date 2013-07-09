@@ -1,5 +1,9 @@
 '''
-Generate factorial
+Factorial
+
+Input: Take in a number
+Output: The factorial of a number (n!). The product of all positive integers less than or equal to a number.
+
 '''
 
 import math
