@@ -6,10 +6,8 @@ Output: Rearrange each word if can be a palindrome, otherwise replace with -1 an
 
 '''
 
-
-
 from collections import deque, defaultdict
-from python.palindrome import pal2
+from palindrome import pal2 # path relative import - pull from Github python folder
 
 #Use deque structure to solve.
 def palindrome(words):
@@ -97,9 +95,10 @@ def palindrome2(words_list):
 
 def palindrome3(words_list):
     results = []
-    for word in words_list:
-        evens = defaultdict(int)
-        odds = defaultdict(int)
+    def fail():
+        results.append(-1)
+
+    def count_occurrences(word, evens, odds):
         for c in word:
             # count letters but also swap them back and forth for easy checking
             # of the # of odds later.
@@ -113,8 +112,10 @@ def palindrome3(words_list):
             left[c] = right[c] + 1
             del right[c]
 
-        def fail():
-            results.append(-1)
+    for word in words_list:
+        evens = defaultdict(int)
+        odds = defaultdict(int)
+        count_occurrences(word, evens, odds)
 
         # if the word is len-even, then there must
         # be no odd-occurring letters - otherwise it can't be
@@ -129,7 +130,9 @@ def palindrome3(words_list):
             if len(odds) > 1:
                 fail()
                 continue
-            center = odds.keys()[0] * odds.values()[0]
+            # fancy: center = odds.keys()[0] * odds.values()[0]
+            center_letter, center_count = odds.items()[0]
+            center = center_letter * center_count
         # build the left half, then join it to the center and the left's reverse:
         left = []
         for char, count in evens.items():
@@ -152,6 +155,7 @@ result2 = ['ltaiatl', 'deed', -1]
 result3 = [-1]
 result4 = ['']
 
+#Function to check if its a palindrome despite the order of the letters.
 def verify(actual, expected):
     for i, val in enumerate(actual):
         if val == -1:
