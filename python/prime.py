@@ -1,5 +1,5 @@
 '''
-Find prime number
+Find Prime Number
 '''
 
 # def find_prime(n):
