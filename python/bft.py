@@ -12,7 +12,6 @@ class Node():
         self.left = None
         self.right = None
 
-
     #Prints each value moving across each layer. O(n)
     def bft(self):
         q = []
@@ -28,7 +27,7 @@ class Node():
         return ' '.join(ans)
 
 
-    #Prints each level on a separate line. - O(n)
+    #Prints each level on a separate line. O(n)
     def bft2(self):
         q = []
         q2 = []
@@ -48,7 +47,7 @@ class Node():
         return ' '.join(ans)
 
 
-    #Variation that prints one line breadth. - O(n)
+    #Variation that prints one line breadth. O(n)
     def bft3(self):
         parent = [self]
         ans = []
@@ -65,7 +64,7 @@ class Node():
 
 
 
-#Run, build & test the tree
+#Run, build & test the tree.
 if __name__ == '__main__':
     #Build out the tree.
     n = Node('Lola')
@@ -84,7 +83,7 @@ if __name__ == '__main__':
     n.left.right = n7
 
 
-    #Test
+    #Test section. Split implementations since results are different.
     implementations = [n.bft,n.bft3]
     implementations2 = [n.bft2]
 
