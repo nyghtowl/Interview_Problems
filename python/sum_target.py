@@ -65,16 +65,36 @@ def sum_target4(target, num_list):
                 pairs.append(compare_val(target, val, num_list[index+1:]))
     return pairs
 
-#O(n)
+#Solution with dictionary but still embedded loops. - O(n^2)
 def sum_target5(target, num_list):
     pairs = {}
 
-    # target - val in list
     for val in num_list:
-        x = target - val
-        if x in num_list and x not in pairs:
-            pairs[val] = x
+        remain = target - val
+        if remain in num_list and remain not in pairs: # in is O(n) because used against list
+            pairs[val] = remain
     return pairs
+
+#O(n)
+def sum_target6(target, num_list):
+    remain_dict = {}
+    pairs = []
+
+    for num in num_list:
+        remain = target - num
+        if remain >= 0:
+            remain_dict[num] = remain
+
+    for num, remain in remain_dict.items():
+        # 'in' is O(1) because used against dictionary - if remain is a key in dict
+        if remain in remain_dict: 
+        #if remain_dict[remain]: - checks if value is truthy vs. whether first thing is key
+            pairs.append([num, remain])
+            del remain_dict[remain] # remaining value is deleted because already used
+        print remain_dict
+
+    return pairs
+
 
 #Test section.
 num_list = [5,3,5,7,1,2,5,6]
@@ -101,13 +121,13 @@ result3 = []
 result4 = [[5,3],[7,1],[2,6]]
 result5 = []
 
-implementations2 = [sum_target3, sum_target4]
+implementations2 = [sum_target3, sum_target4, sum_target6]
 for impl in implementations2:
     print "trying %s" % impl
     print "f(%s) == %s: %s" % (num_list, target, impl(target, num_list) == result3)
     print "f(%s) == %s: %s" % (num_list, target2, impl(target2, num_list) == result4)
     print "f(%s) == %s: %s" % (num_list, target3, impl(target3, num_list) == result5)
-
+    print impl(target2, num_list)
 
 result6 = {2: 6, 5: 3, 7: 1}
 implementations2 = [sum_target5]
