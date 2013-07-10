@@ -1,11 +1,16 @@
 '''
-Find if a smaller string exists and/or can be created out of a larger string
+String Match
+Find if a smaller string exists and/or can be created out of a larger string.
 
+Input: Two strings
+Output: True if the smaller string exists in the larger string
 
+Known as ransome note or needle in a haystack.
 
 '''
 
 #Ransome note example find out if the letters are in the mag
+#Split in two functions which equal nested loops - O(n^2)
 def mag_dict(magazine):
     mag_hash = {}
     for i in magazine:
@@ -13,7 +18,7 @@ def mag_dict(magazine):
     return mag_hash
 
 
-def comparison(mag, note):
+def match(mag, note):
     mdict = mag_dict(mag)
     for i in note:
         if i in mdict:
@@ -23,32 +28,22 @@ def comparison(mag, note):
     return True
 
 
-def strstr(needle, haystack):
-    pass
-
-
-#WIP - need to finish
-def match(str1,str2):
-    l_str1 = list(str1)
-    l_str2 = list(str2)
-    state = True
-
-    #Check which string would be a subset.
-    if len(l_str1) > len(l_str2):
-        large_list, small_list = l_str1, l_str2
+#Check which string would be a subset assuming the order submitted changes
+def find_main_str(str1, str2):
+    if len(str1) > len(str2):
+        return (str1, str2)
     else:
-        large_list, small_list = l_str1, l_str2
+        return (str1, str2)
 
-    for letter in large_list:
-        if letter not in small_list:
-            state = False
+def match2(str1,str2):
+    large, small = find_main_str(str1,str2)
+    
+    if small in large:
+        return True
 
-# in progress
-
-    return state
 
 #Embedded loop solution. - O(n+m)
-def match2(s1,s2):
+def match3(s1,s2):
     state = False
     for i, char in enumerate(s1):
         if s2[0] == char:
@@ -71,7 +66,7 @@ def match2(s1,s2):
 
 #Note: still not functioning properly - need to account for end of string
 
-def match3(s1,s2):
+def match4(s1,s2):
     j_d = {}
     for c in s1:
         j_d[c] = True
@@ -107,7 +102,7 @@ def match3(s1,s2):
 
     return found
 
-#Test section.
+#Test section
 str1 = 'Cat goes crazy'
 str1a = 'crazy'
 str1b = 'Cat'
@@ -119,7 +114,7 @@ str2b = 'not'
 result = True
 result2 = False
 
-implementations = [comparison, match2, match3]
+implementations = [match, match2, match3]
 
 for impl in implementations:
     print "trying %s" % impl
