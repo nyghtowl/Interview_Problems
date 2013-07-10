@@ -2,15 +2,15 @@
 Square a number
 '''
 
-#Simple solution
+#Simple solution - O(1)
 def square(num):
     return num * num
 
-#Loop / list comprehension solution.
+#Loop / list comprehension solution - O(n)
 def square2(num):
     return sum([num for n in range(num)])
 
-#Test cases
+#Test section
 implementations = [square, square2]
 
 for impl in implementations:
