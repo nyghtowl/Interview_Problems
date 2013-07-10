@@ -9,6 +9,8 @@ Challenge:
 *For a list of numbers and a target number, return true if any two numbers add to the target number
 *Given a list of numbers, return a set of 3 numbers that add to 0.
 '''
+import itertools
+
 #Functions provide true/false results
 
 # Embedded loops. - O(n^2)
@@ -75,24 +77,16 @@ def sum_target5(target, num_list):
             pairs[val] = remain
     return pairs
 
-#O(n)
+
+#Consolidated solution to only one loop. - O(n)
 def sum_target6(target, num_list):
-    remain_dict = {}
-    pairs = []
+    pairs = {}
 
     for num in num_list:
         remain = target - num
-        if remain >= 0:
-            remain_dict[num] = remain
-
-    for num, remain in remain_dict.items():
-        # 'in' is O(1) because used against dictionary - if remain is a key in dict
-        if remain in remain_dict: 
-        #if remain_dict[remain]: - checks if value is truthy vs. whether first thing is key
-            pairs.append([num, remain])
-            del remain_dict[remain] # remaining value is deleted because already used
-        print remain_dict
-
+        if (target - (num + remain)) == 0 and remain not in pairs:
+            pairs[num] = remain
+    
     return pairs
 
 
@@ -121,7 +115,7 @@ result3 = []
 result4 = [[5,3],[7,1],[2,6]]
 result5 = []
 
-implementations2 = [sum_target3, sum_target4, sum_target6]
+implementations2 = [sum_target3, sum_target4]
 for impl in implementations2:
     print "trying %s" % impl
     print "f(%s) == %s: %s" % (num_list, target, impl(target, num_list) == result3)
@@ -130,7 +124,8 @@ for impl in implementations2:
     print impl(target2, num_list)
 
 result6 = {2: 6, 5: 3, 7: 1}
-implementations2 = [sum_target5]
+
+implementations2 = [sum_target5, sum_target6]
 
 for impl in implementations2:
     print "trying %s" % impl
