@@ -32,7 +32,7 @@ def list_int4(list1, list2):
     lc = [list2[i] for i in xrange(len(list2)) if list2[i] in s1]
     return set(list(lc))
 
-#Test for find number variations 
+#Test section 
 implementations = [list_int, list_int2, list_int3, list_int4]
 list1 = [9,-1,10,2,300,3,0,-10]
 list2 = [5,4,7,-1,8,9]

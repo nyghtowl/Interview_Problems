@@ -35,9 +35,10 @@ def find_main_str(str1, str2):
     else:
         return (str1, str2)
 
+#O(n)
 def match2(str1,str2):
     large, small = find_main_str(str1,str2)
-    
+
     if small in large:
         return True
 
@@ -58,7 +59,6 @@ def match3(s1,s2):
                 else:
                     break
     return state
-
 
 #Boyer Moore Algorithm approach - compare starting end of string 
 #check each subset of the main string whether the last character is
