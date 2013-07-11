@@ -9,21 +9,17 @@ Output: Count of unique ways to make change OR
 '''
 
 
-def make_change(coins, target):
-    count = 0
+def make_change(coins, target, count=0):
 
-    if len(coins) > 0:
-        if target < 0:
-            return 0
-        elif target == 0:
-            return 1
-        else:
-            for coin in coins:
-                remaining = target-coin
-                count += make_change(coins, remaining)
+    if target < 0:
+        return 0
+    elif target == 0:
+        return 1
+    else:
+        for coin in coins:
+            remaining = target-coin
+            count += make_change(coins, remaining, count)
     return count
-
-# print make_change(coins, target)
 
 # def make_change2(coins, target):
 #     coins_dict = {0:([0,0,0,0],) } #default combination for zero
@@ -45,7 +41,6 @@ def make_change(coins, target):
     
 #     return coins_dict
 
-# print make_change2(coins, target)
 
 # def make_solution_template(num_coins=4):
 #     return [0] * num_coins
@@ -102,6 +97,28 @@ def make_change2(target):
 
 coins = [1, 5, 10, 25]
 target = 10
+target2 = 25
 
-print make_change(coins, target)
-print make_change2(25) #placeholder value
+result = 4
+result2 = 12
+
+implementations = [make_change]
+
+for impl in implementations:
+    print "trying %s" % impl
+    print "  f(%s) == %s: %s" % (target, result, impl(coins,target) == result)
+    print "  f(%s) == %s: %s" % (target2, result2, impl(coins,target2) == result2)
+    print impl(coins,target)
+    print impl(coins,target2)
+
+result3 = ([10, 0, 0, 0], [5, 1, 0, 0], [0, 2, 0, 0], [0, 0, 1, 0])
+result4 = ([25, 0, 0, 0], [20, 1, 0, 0], [15, 2, 0, 0], [15, 0, 1, 0], [10, 3, 0, 0], [10, 1, 1, 0], [5, 4, 0, 0], [5, 2, 1, 0], [5, 0, 2, 0], [0, 5, 0, 0], [0, 3, 1, 0], [0, 1, 2, 0], [0, 0, 0, 1])
+
+
+implementations2 = [make_change2]
+for impl in implementations2:
+    print "trying %s" % impl
+    print "  f(%s) == %s: %s" % (target, result3, impl(target) == result3)
+    print "  f(%s) == %s: %s" % (target2, result4, impl(target2) == result4)
+    print impl(target)
+    print impl(target2)
