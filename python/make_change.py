@@ -8,8 +8,9 @@ Output: Count of unique ways to make change OR
 
 '''
 
-
-def make_change(coins, target, count=0):
+#Count solution - needs to be finished
+def make_change(coins, target):
+    count = 0
 
     if target < 0:
         return 0
@@ -18,33 +19,8 @@ def make_change(coins, target, count=0):
     else:
         for coin in coins:
             remaining = target-coin
-            count += make_change(coins, remaining, count)
+            count += make_change(coins, remaining)
     return count
-
-# def make_change2(coins, target):
-#     coins_dict = {0:([0,0,0,0],) } #default combination for zero
-
-#     for index, coin in enumerate(coins):
-#         remain = target - coin
-#         if (target - (coin + remain)) == 0 and remain not in coins_dict:
-#             if coins_dict:
-#                 coins_dict[remain][index] += 1
-#             else:
-#                 coins_dict = { remain: solution_temp }
-#                 coins_dict[remain][index] += 1
-
-
-#         if remain > 0:
-#             if not coins_dict:
-#                 coins_dict = { remain: solution_temp }
-#             coins_dict[remain][index] += 1
-    
-#     return coins_dict
-
-
-# def make_solution_template(num_coins=4):
-#     return [0] * num_coins
-
 
 
 #Recursive solution to return all unique combinations of change to make taret
@@ -120,5 +96,3 @@ for impl in implementations2:
     print "trying %s" % impl
     print "  f(%s) == %s: %s" % (target, result3, impl(target) == result3)
     print "  f(%s) == %s: %s" % (target2, result4, impl(target2) == result4)
-    print impl(target)
-    print impl(target2)
