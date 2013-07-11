@@ -7,44 +7,21 @@ Output: Count of unique ways to make change OR
         List of unique ways to make change
 
 '''
-# coins = [1, 5, 10, 25]
-# target = 100
 
-# def chg_count(coins, target):
-#     count = 0
-#     if target < 0:
-#         return
-#     if target == 0:
-#         return 1
-#     if target > 0:
-#         for i in coins:
-#             if target - i >= 0:
-#                 count += chg_count(coins, target-i)
-#     return count
 
-# print 15, chg_count(coins, target)
+def make_change(coins, target):
+    count = 0
 
-# coins = [1, 5, 10, 25]
-# [0,0,0,0]
-
-# target = 10
-
-# def make_change(coins, target):
-#     count = 0
-
-#     if len(coins) > 0:
-#         if target < 0:
-#             return
-#         elif target == 0:
-#             return 1
-#         else:
-#             for coin in coins:
-#                 if coin <= target:
-#                     remaining = target-coin
-#                     print "using %s coin, %s remaining" % (coins, remaining)
-#                     count += make_change(coins, remaining)
-#     print count
-#     return count
+    if len(coins) > 0:
+        if target < 0:
+            return 0
+        elif target == 0:
+            return 1
+        else:
+            for coin in coins:
+                remaining = target-coin
+                count += make_change(coins, remaining)
+    return count
 
 # print make_change(coins, target)
 
@@ -74,6 +51,7 @@ Output: Count of unique ways to make change OR
 #     return [0] * num_coins
 
 
+
 #Recursive solution to return all unique combinations of change to make taret
 #Solution applies dynamic programming and originally coded by Jasmine
 
@@ -82,7 +60,7 @@ coins = [25, 10, 5, 1]
 amts_calculated = {0 : ([0, 0, 0, 0],)} #default combination for zero cents is zero coins across
 
 
-def make_change(target):
+def make_change2(target):
 
     if target < 0 :
         return []
@@ -94,7 +72,7 @@ def make_change(target):
         combined_list = ()
 
         for index, coin in enumerate(coins):
-            base_solutions_list = make_change(target-coin)
+            base_solutions_list = make_change2(target-coin)
             solutions_list = ()
 
             for solution in base_solutions_list:
@@ -121,4 +99,9 @@ def make_change(target):
 # print make_change(all_coins, 10) == 4 # dime, 2 nickles, 1 nickle + 5 pennies, 10 pennies
 # print make_change(all_coins, 25) == 12 #q, 2d1n, 2d5p, 1d3n, 1d2n5p, 1d15p, 5n, 4n5p, 3n10p, 2n15p, 1n20p, 0n25p
 # print make_change(all_coins, 27) == 12
-print make_change(25) #placeholder value
+
+coins = [1, 5, 10, 25]
+target = 10
+
+print make_change(coins, target)
+print make_change2(25) #placeholder value
