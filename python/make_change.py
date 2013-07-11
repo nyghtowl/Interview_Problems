@@ -4,7 +4,7 @@ Make Change
 
 Input: Target coin and list of coins
 Output: Count of unique ways to make change OR
-        List of unique ways to make change
+        List of unique ways to make change - originally coded by Jasmine
 
 '''
 
@@ -24,7 +24,7 @@ def make_change(coins, target):
 
 
 #Recursive solution to return all unique combinations of change to make taret
-#Solution applies dynamic programming and originally coded by Jasmine
+#Solution applies dynamic programming
 
 
 #global variable - bad but whatever
