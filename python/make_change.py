@@ -26,7 +26,7 @@ def make_change(coins, target):
 #Recursive solution to return all unique combinations of change to make taret
 #Solution applies dynamic programming and originally coded by Jasmine
 
-coins = [25, 10, 5, 1]
+
 #global variable - bad but whatever
 amts_calculated = {0 : ([0, 0, 0, 0],)} #default combination for zero cents is zero coins across
 
@@ -61,22 +61,26 @@ def make_change2(target):
     return amts_calculated[target]
 
 
-# # Test section
-# print make_change(all_coins, 1) == 1
-# print make_change(all_coins, 2) == 1
-# print make_change(all_coins, 3) == 1
-# print make_change(all_coins, 5) == 2
-# print make_change(all_coins, 7) == 2
-# print make_change(all_coins, 10) == 4 # dime, 2 nickles, 1 nickle + 5 pennies, 10 pennies
-# print make_change(all_coins, 25) == 12 #q, 2d1n, 2d5p, 1d3n, 1d2n5p, 1d15p, 5n, 4n5p, 3n10p, 2n15p, 1n20p, 0n25p
-# print make_change(all_coins, 27) == 12
+# Test section
 
 coins = [1, 5, 10, 25]
-target = 10
-target2 = 25
+target = 1
+target2 = 2
+target3 = 3
+target4 = 5
+target5 = 7
+target6 = 10
+target7 = 25
+target8 = 27
 
-result = 4
-result2 = 12
+result = 1
+result2 = 1
+result3 = 1
+result4 = 2
+result5 = 2
+result6 = 4
+result7 = 12
+result8 = 12
 
 implementations = [make_change]
 
@@ -84,15 +88,30 @@ for impl in implementations:
     print "trying %s" % impl
     print "  f(%s) == %s: %s" % (target, result, impl(coins,target) == result)
     print "  f(%s) == %s: %s" % (target2, result2, impl(coins,target2) == result2)
-    print impl(coins,target)
-    print impl(coins,target2)
+    print "  f(%s) == %s: %s" % (target3, result3, impl(coins,target3) == result3)
+    print "  f(%s) == %s: %s" % (target4, result4, impl(coins,target4) == result4)
+    print "  f(%s) == %s: %s" % (target5, result5, impl(coins,target5) == result5)
+    print "  f(%s) == %s: %s" % (target6, result6, impl(coins,target6) == result6)
+    print "  f(%s) == %s: %s" % (target7, result7, impl(coins,target7) == result7)
+    print "  f(%s) == %s: %s" % (target8, result8, impl(coins,target8) == result8)
 
-result3 = ([10, 0, 0, 0], [5, 1, 0, 0], [0, 2, 0, 0], [0, 0, 1, 0])
-result4 = ([25, 0, 0, 0], [20, 1, 0, 0], [15, 2, 0, 0], [15, 0, 1, 0], [10, 3, 0, 0], [10, 1, 1, 0], [5, 4, 0, 0], [5, 2, 1, 0], [5, 0, 2, 0], [0, 5, 0, 0], [0, 3, 1, 0], [0, 1, 2, 0], [0, 0, 0, 1])
-
+result1_2 = ([1,0,0,0],)
+result2_2 = ([2,0,0,0],)
+result3_2 = ([3,0,0,0],)
+result4_2 = ([5,0,0,0],[0,1,0,0])
+result5_2 = ([7,0,0,0],[2,1,0,0])
+result6_2 = ([10, 0, 0, 0], [5, 1, 0, 0], [0, 2, 0, 0], [0, 0, 1, 0])
+result7_2 = ([25, 0, 0, 0], [20, 1, 0, 0], [15, 2, 0, 0], [15, 0, 1, 0], [10, 3, 0, 0], [10, 1, 1, 0], [5, 4, 0, 0], [5, 2, 1, 0], [5, 0, 2, 0], [0, 5, 0, 0], [0, 3, 1, 0], [0, 1, 2, 0], [0, 0, 0, 1])
+result8_2 = ([27, 0, 0, 0], [22, 1, 0, 0], [17, 2, 0, 0], [17, 0, 1, 0], [12, 3, 0, 0], [12, 1, 1, 0], [7, 4, 0, 0], [7, 2, 1, 0], [7, 0, 2, 0], [2, 5, 0, 0], [2, 3, 1, 0], [2, 1, 2, 0], [2, 0, 0, 1])
 
 implementations2 = [make_change2]
 for impl in implementations2:
     print "trying %s" % impl
-    print "  f(%s) == %s: %s" % (target, result3, impl(target) == result3)
-    print "  f(%s) == %s: %s" % (target2, result4, impl(target2) == result4)
+    print "  f(%s) == %s: %s" % (target, result1_2, impl(target) == result1_2)
+    print "  f(%s) == %s: %s" % (target2, result2_2, impl(target2) == result2_2)
+    print "  f(%s) == %s: %s" % (target3, result3_2, impl(target3) == result3_2)
+    print "  f(%s) == %s: %s" % (target4, result4_2, impl(target4) == result4_2)
+    print "  f(%s) == %s: %s" % (target5, result5_2, impl(target5) == result5_2)
+    print "  f(%s) == %s: %s" % (target6, result6_2, impl(target6) == result6_2)
+    print "  f(%s) == %s: %s" % (target7, result7_2, impl(target7) == result7_2)
+    print "  f(%s) == %s: %s" % (target8, result8_2, impl(target8) == result8_2)
