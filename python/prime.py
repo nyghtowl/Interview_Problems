@@ -25,7 +25,3 @@ for index, n in enumerate(sample_n):
     print "f(%s) == %s: %s" % (n,results[index],(impl(n) == results[index]))
 
 
-# print "1: ",find_primes(1)
-# print "6: ",find_primes(6)
-# print "7: ",find_primes(7)
-# print "100: ",find_primes(100)
