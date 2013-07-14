@@ -1,8 +1,9 @@
+#!/usr/bin/env python
 '''
 List Intersection
 
 Input: 2 lists
-Output: points of intersection between 2 lists
+Output: numbers where the two lists intersect 
 '''
 
 #Return list of intersections between 2 lists - O(n^2) or O(nm)
@@ -47,3 +48,4 @@ for impl in implementations:
     print "  f(list1, list4) == []: %s" % (impl(list1, list4) == set([]))
     print impl(list1, list3)
 
+ 
