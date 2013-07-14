@@ -1,12 +1,17 @@
+#!/usr/bin/env python
 '''
-Reverse a string, sentenece or link.
+Reverse 
+
+Input: string, sentenece or link
+
+Out: reverse of what is submitted
 
 Note: claudiay contributed additional example and test
 '''
 
-# Simple example of reversing a string.
+# Simple example of reversing a string
 # However, pop is an expensive call and should be avoided in code that
-# will be called many times. 
+# will be called many times
 def reverse_str(string):
     rev_list=[]
     new_list=list(string)
@@ -15,17 +20,17 @@ def reverse_str(string):
         new_list.pop()
     return ''.join(rev_list)
 
-# Neat reverse string trick in python.
+# Neat reverse string trick in python - O(n)
 def reverse_str2(string):
     return string[::-1]
 
 
-# Utilizes reversed function.
+# Reversed function - constant space - O(n)
 def reverse_str3(string):
     return ''.join(reversed(string))
 
 
-# Reverse in constant time.
+# Constant space - O(logn)
 def reverse_str4(string):
     string_list = list(string)
     for i in range(int((len(string))/2)):
@@ -33,7 +38,7 @@ def reverse_str4(string):
         string_list[i], string_list[-1-i] = string_list[-1-i], string_list[i]
     return ''.join(string_list)
 
-
+# Constant space - O(logn)
 def reverse_str5(string):
     list_str = list(string)
     length = len(list_str)
@@ -44,7 +49,7 @@ def reverse_str5(string):
             list_str[i],list_str[-1-i] = list_str[-1-i], list_str[i]
         return ''.join(list_str)
 
-
+# O(n)
 def reverse_sentence6(sentence):
     sent_list = sentence.split(' ')
     new_list = []
@@ -53,12 +58,13 @@ def reverse_sentence6(sentence):
     return ' '.join(new_list)
 
 
-# Reverse a string and replace capitalize vowels.
+# Reverse a string and replace capitalize vowels
 def cap(char):
     if char in 'aeiou':
         return char.upper()
     return char
 
+# Constant space - O(logn)
 def reverse_sentence7(sent):
     # Anti-Marxist style of reversing strings. 
     alist = list(sent)
@@ -66,13 +72,13 @@ def reverse_sentence7(sent):
         alist[i], alist[-1-i] = cap(alist[-1-i]), cap(alist[i])
     return ''.join(alist)
 
-
+# Constant space - O(logn)
 def reverse_list(alist):
     for num in range(int(len(alist)/2)):
         alist[num], alist[-1-num] = alist[-1-num], alist[num]
     return alist
 
-
+#O(n)
 def reverse_list2(alist):
     return alist[::-1]    
 
