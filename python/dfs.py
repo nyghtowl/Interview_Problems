@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''
 Depth First Search (DFS)
 
@@ -5,20 +6,19 @@ Input: tree of names and search for existance of one name
 Output: true or false if the name is found
 
 '''
-class Person():
-    def __init__(self, birthday):
-        self.birthday = birthday 
-    def __cmp__(self, other):
-        return cmp(self.birthday, other.birthday)
+
 
 class Node():
+
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
+
     def add(value):
-        pass # handle adding nodes
-    #Recursive solution - O(n)
+        pass  # handle adding nodes
+    # Recursive solution - O(n)
+
     def dfs(self, person):
         if not self.val:
             return False
@@ -31,11 +31,9 @@ class Node():
                 if self.right:
                     return self.right.dfs(person)
 
-
 if __name__ == '__main__':
 
-
-    #Build out the tree.
+    # Build out the tree.
     n = Node('Lola')
     n2 = Node('Ann')
     n3 = Node('Rose')
@@ -51,12 +49,12 @@ if __name__ == '__main__':
     n.left.left = n6
     n.left.right = n7
 
-    #Test
+    # Test section
     implementations = [n.dfs]
 
     person_search = 'Louis'
     person_search2 = 'George'
-    
+
     result = True
     result2 = False
 
