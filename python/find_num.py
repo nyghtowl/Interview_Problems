@@ -8,14 +8,14 @@ What number is missing
 
 '''
 
-#Return true if num exists in list
+#Return true if num exists in list -O(n)
 def find_num(list1, num):
     if num in list1:
         return True
     return False
 
 
-#Return index of the second occurance of a num in list
+#Return index of the second occurance of a num in list - O(n)
 def find_num2(list1, num):
     count = result = 0
     for x, n in enumerate(list1):
@@ -28,7 +28,7 @@ def find_num2(list1, num):
     return result
 
 
-#Find a missing number when comparing two lists
+#Find a missing number when comparing two lists - O(n^2)
 def miss_num(list1, list2):
     
     for i in list1:
@@ -37,7 +37,7 @@ def miss_num(list1, list2):
     return 0
 
 
-#Second variation to find a missing number by adding the values and subtracting
+#Second variation to find a missing number by adding the values and subtracting - O(n)
 def miss_num2(list1, list2):
     return abs(sum(list1)-sum(list2))
 
