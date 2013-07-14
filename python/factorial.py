@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''
 Factorial
 
@@ -8,14 +9,18 @@ Output: The factorial of a number (n!). The product of all positive integers les
 
 import math
 
- #recursive solution
+ # Recursive solution
+
+
 def rec_fact(n):
     if n == 0:
         return 1
     else:
-        return (n * rec_fact(n-1))
+        return (n * rec_fact(n - 1))
 
-#while loop iteration solution
+# While loop iteration solution
+
+
 def loop_sol_1(n):
     if n == 0:
         n = 1
@@ -25,22 +30,26 @@ def loop_sol_1(n):
         n *= num
     return n
 
-#for loop iteration solution
+# For loop iteration solution
+
+
 def loop_sol_2(n):
     if n == 0:
         n = 1
-    for num in range(1,n):
+    for num in range(1, n):
         n *= num
     return n
 
- #list comprehension solution
-def functional(n):
-    return reduce(lambda x,y:x*y,[1]+range(1,n+1))
+ # List comprehension solution
 
-#math library solution
+
+def functional(n):
+    return reduce(lambda x, y: x * y, [1] + range(1, n + 1))
+
+# Math library solution
 std_lib = math.factorial
 
-#test 
+# Test section
 implementations = [std_lib, rec_fact, loop_sol_1, loop_sol_2, functional]
 
 for impl in implementations:
