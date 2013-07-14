@@ -1,5 +1,6 @@
+#!/usr/bin/env python
 '''
-Breadth First Search 
+Breadth First Search
 
 Input: tree and value to search for
 
@@ -8,6 +9,7 @@ Output: Breadth first search for a specified value in tree
 
 
 class Node():
+
     def __init__(self, val):
         self.val = val
         self.left = None
@@ -29,9 +31,9 @@ class Node():
         return ans
 
 
-#Run, build & test the tree
+# Run, build & test the tree
 if __name__ == '__main__':
-    #Build out the tree.
+    # Build out the tree.
     n = Node('Lola')
     n2 = Node('Ann')
     n3 = Node('Rose')
@@ -47,7 +49,7 @@ if __name__ == '__main__':
     n.left.left = n6
     n.left.right = n7
 
-  #Test
+  # Test section
     implementations = [n.bfs]
 
     person_search = 'Louis'
@@ -60,4 +62,3 @@ if __name__ == '__main__':
         print "trying %s" % impl
         print " f(%s) exists: %s" % (person_search, impl(person_search) == result)
         print " f(%s) does not exist: %s" % (person_search2, impl(person_search2) == result2)
-
