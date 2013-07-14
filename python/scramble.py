@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 """
-Given a .txt file of acceptable English words and a string of letters, find all
-acceptable words.
+Scramble
+
+Input: .txt file of acceptable English words and a string of letters
+Output: find all acceptable words
+
 Example:
     Input: 'dog'
     Output: 'dog', 'god', 'go', 'do'
@@ -18,9 +21,9 @@ would one be preferable over the other? Which is ~generally~ better?
 Original problem/solution submission from claudiay
 """
 
+# Create dict of acceptable words from file_name.
+# Map a tuple of the sorted lettters to acceptable words
 def create_dict(file_name):
-    # Create dict of acceptable words from file_name.
-    # Map a tuple of the sorted lettters to acceptable words.
     words = {}
     with open(file_name) as f:
         content = f.readlines()
@@ -28,16 +31,15 @@ def create_dict(file_name):
         word = word.strip()
         key = tuple(sorted(list(word)))
         if words.get(key, False):
-            # Key already exists.
+            # Key already exists
             words[key].append(word)
         else:
             words[key] = [word]
     return words
 
-
+# Create dict that maps word to True
+# We don't have time to sort through all these words
 def create_simple_dict(file_name):
-    # Create dict that maps word to True.
-    # We don't have time to sort through all these words.
     words = {}
     with open(file_name) as f:
         content = f.readlines()
@@ -46,10 +48,9 @@ def create_simple_dict(file_name):
         words[word] = True
     return words
 
-
+# Similar to itertools.combinations()
+# Iterates through all combinations of letters for length of r
 def search(letters, r):
-    # similar to itertools.combinations()
-    # iterates through all combinations of letters for length of r
     n = len(letters)
     if r > n:
         return
@@ -66,7 +67,7 @@ def search(letters, r):
             indices[j] = indices[j-1] + 1
         yield tuple(letters[i] for i in indices)
 
-
+# O(n^2)
 def unscramble(word, english):
     words = []
     word = sorted(word)
@@ -77,15 +78,15 @@ def unscramble(word, english):
                 words += english.get(subset)
     return words
 
-
+# Similar to itertools.permutations()
+# Shuffle through all combinations found through search() - O(n^2)
 def permutations(letters, r):
-    # Similar to itertools.permutations()
-    # Shuffle through all combinations found through search(). 
     n = len(letters)
     if r > n:
         return
     indices = range(n)
     cycles = range(n, n-r, -1)
+    # Generator and list comprehension
     yield ''.join(letters[i] for i in indices[:r])
     while n:
         for i in reversed(range(r)):
@@ -101,7 +102,7 @@ def permutations(letters, r):
         else:
             return
 
-
+# O(n^2)
 def unscramble_simple_dict(word, english):
     words = []
     
@@ -112,6 +113,7 @@ def unscramble_simple_dict(word, english):
     return words
 
 
+#Test section
 if __name__ == '__main__':
     english = create_dict('words.txt')
     print "Dictionary created."
