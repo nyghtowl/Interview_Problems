@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 '''
 Quicksort
+
+Input: list of numbers
+Output: sorted list using quicksort 
 '''
 
 import random
