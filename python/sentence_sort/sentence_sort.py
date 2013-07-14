@@ -1,5 +1,10 @@
+#!/usr/bin/env python
 """
-sort a sentence by length of words
+Sentence Sort
+
+Input: sentence
+
+Output: sort a sentence by length of words
 
 Example:
 
