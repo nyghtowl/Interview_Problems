@@ -16,7 +16,7 @@ switch to
 '''
 
 
-#Set data structure as a list of coordinates.
+#Set data structure as a list of coordinates
 def flip_matrix(mat):
     mid = int(len(matrix/6))
     for i, coord in enumerate(matrix):
@@ -54,15 +54,15 @@ Example:
 Note: claudiay contributed additional example and test
 """
 
-# Short without zip.
+# Short without zip
 def rotate(matrix):
     return [[j[i] for j in matrix][::-1] for i in range(len(matrix))]
 
-# Python trick answer, returns an array with tuples. 
+# Python trick answer, returns an array with tuples
 def rotate_with_zip(matrix):
     return zip(*matrix[::-1])
 
-# A expanded version to explain each step.
+# A expanded version to explain each step
 def rotate_explain(matrix):
     n = len(matrix)
     new_matrix = []
@@ -75,8 +75,8 @@ def rotate_explain(matrix):
     
     return new_matrix
 
-# Rotate the matrix in place, without creating another matrix.
-# Ideal for situations processing a large matrix with limited space.
+# Rotate the matrix in place, without creating another matrix
+# Ideal for situations processing a large matrix with limited space
 def rotate_in_place(matrix):
     n = len(matrix)
     for i in range(n/2):
@@ -101,12 +101,13 @@ if __name__ == '__main__':
                   [15, 16, 17, 18, 19],
                   [20, 21, 22, 23, 24]]
 
+    #Test section
     print rotate(matrix)
     print rotate_with_zip(matrix)
     print rotate_explain(matrix)
     print rotate_in_place(matrix)
 
-    # Test odd matrix.
+
     print rotate(odd_matrix)
     print rotate_with_zip(odd_matrix)
     print rotate_explain(odd_matrix)
