@@ -1,5 +1,9 @@
+#!/usr/bin/env python
 '''
-recreate split function in python
+Split
+
+Input: string and and character to split on
+Output: create list with the string split based on character submitted
 
 '''
 
