@@ -1,5 +1,6 @@
+#!/usr/bin/env python
 '''
-Find Prime Number
+Prime Number
 
 Input: positive integer
 Output: set of prime divsors of a number
