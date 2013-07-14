@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''
 Find Subset 
 
@@ -18,7 +19,7 @@ def small_sub2(l,k):
     l.sort()
     return l[0:k]
 
-#Test
+#Test section
 num_list = [1,10,3,9,5,-1]
 num_vals = 3
 
