@@ -1,13 +1,18 @@
 #!/usr/bin/env python
 '''
-Given an 3x3 matrix, rotate the matrix by 90 degrees and return rotated matrix.
+Turn Matrix
+
+Input: 3x3 matrix of integers
+
+Output: Rotate the matrix by 90 degrees and return rotated matrix
+
 Example:
 
 1 2 3
 4 5 6 
 7 8 9
 
-switch to 
+Switch to:
 
 7 4 1
 8 5 2
@@ -38,7 +43,10 @@ def flip_matrix(mat):
 #Improved approach is new[x,y] = old [y,2-x]
 
 """
-Given an NxN matrix, rotate the matrix by 90 degrees and return rotated matrix.
+Input: Given an NxN matrix
+
+Output: Rotate the matrix by 90 degrees and return rotated matrix.
+
 Example:
     input: 
            [[1, 2, 3, 4],
