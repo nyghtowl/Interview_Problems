@@ -1,9 +1,11 @@
+#!/usr/bin/env python
 '''
-Quicksort Example
+Quicksort
 '''
 
 import random
 
+# O(n^2)
 def quick_sort(l):
     if l == []:
         return []
@@ -18,12 +20,14 @@ def find_pivot(l):
     pivot_index = random.randint(0,len(l)-1)
     return pivot_index
 
+# O(n^2)
 def quick_sort2(l, length=None):
     if len(l) <= 1:
         return l
     pivot_index = find_pivot(l)
     pivot = l[pivot_index]
-    #swap pivot to first item in list
+    
+    #Swap pivot to first item in list
     i = j = 1
     for num in l:
         if num < pivot:
@@ -35,6 +39,7 @@ def quick_sort2(l, length=None):
     quicksort2(l, len(l)-1)
     return l # l will be changed as it goes through thus no = needed
 
+# O(n^2)
 def quick_sort3(l):
     left = right = []
     if len(l) <= 1:
@@ -48,7 +53,7 @@ def quick_sort3(l):
                 right.append(l)
     return quick_sort3(left) + quick_sort3(right)
 
-#Tests
+#Test section
 l = [5,8,3,1,2,7,9,6]
 result = [1,2,3,5,6,7,8,9]
 
