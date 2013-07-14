@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''
 Depth First Traversal
 
@@ -5,7 +6,6 @@ Input: Create tree
 Output: Print each value on each node traversing the tree by depth and from the left first
 
 '''
-
 
 class Node():
 
@@ -47,7 +47,7 @@ if __name__ == '__main__':
     n.left.left = n6
     n.left.right = n7
 
-    # Test
+    # Test section
     implementations = [n.dft]
 
     result = 'Lola Ann Louis Gertrude Rose Janice Harriet '
