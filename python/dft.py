@@ -5,13 +5,17 @@ Input: Create tree
 Output: Print each value on each node traversing the tree by depth and from the left first
 
 '''
+
+
 class Node():
+
     def __init__(self, val):
         self.val = val
         self.left = None
         self.right = None
 
-    #Recursive solution and method leverages string results holder for results - list is an alternative - O(n)
+    # Recursive solution and method leverages string results holder for
+    # results - list is an alternative - O(n)
     def dft(n):
         hold = ''
         if not n:
@@ -19,7 +23,7 @@ class Node():
         else:
             hold = '%s ' % n.val
             if n.left:
-                hold += '%s' % n.left.dft()    
+                hold += '%s' % n.left.dft()
             if n.right:
                 hold += '%s' % n.right.dft()
 
@@ -27,8 +31,7 @@ class Node():
 
 if __name__ == '__main__':
 
-
-    #Build out the tree.
+    # Build out the tree.
     n = Node('Lola')
     n2 = Node('Ann')
     n3 = Node('Rose')
@@ -44,7 +47,7 @@ if __name__ == '__main__':
     n.left.left = n6
     n.left.right = n7
 
-    #Test
+    # Test
     implementations = [n.dft]
 
     result = 'Lola Ann Louis Gertrude Rose Janice Harriet '
@@ -52,6 +55,3 @@ if __name__ == '__main__':
     for impl in implementations:
         print "trying %s" % impl
         print " f(tree) == %s: %s" % (result, impl() == result)
-
-
-
