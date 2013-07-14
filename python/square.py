@@ -1,6 +1,9 @@
 #!/usr/bin/env python
 ''' 
-Square a Number
+Square
+
+Input: number
+Ouput: number squared
 '''
 
 #Simple solution - O(1)
