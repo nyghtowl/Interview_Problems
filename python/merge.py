@@ -11,7 +11,7 @@ Challenge:
 from random import shuffle
 
 
-# Check input type and convert to list.
+# Check input type and convert to list
 def mergesort(words):
     if type(words) is str:
         result = slice_array(list(words))
@@ -20,7 +20,7 @@ def mergesort(words):
         return slice_array(words)
 
 
-# Determine input len & splits and call merge function.
+# Determine input len & splits and call merge function
 def slice_array(mlist):
     size = len(mlist)
     if size <= 1: 
@@ -33,7 +33,7 @@ def sort_values(left, right):
     result = []
     i, j = 0, 0
     
-    # Compare left and right lists and append to temp list.
+    # Compare left and right lists and append to temp list
     while i < len(left) and j < len(right):
         if left[i] < right[j]:
             result.append(left[i])
@@ -47,10 +47,10 @@ def sort_values(left, right):
 
 
 if __name__ == '__main__':
-    # Test string.
+    # Test string
     print mergesort('hellow world')     # ' dehllloorww'
 
-    # Test array of ints.
+    # Test list of integers
     nums = [i for i in range(42)]
     shuffle(nums)
     print mergesort(nums)
