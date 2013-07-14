@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-Extract Time
+Extract Number
 
 Input: A list of dictionaries with text that includes time
 Output: Strip the tmie out of the text, convert to time, calculate the average time and return the mean.
