@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-Fizz buzz problems
+Fizz Buzz 
 
 Input: list of numbers
 
