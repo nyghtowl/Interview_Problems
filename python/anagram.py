@@ -56,7 +56,7 @@ def anagram2(words):
 
 if __name__ == '__main__':
 
-    #Test
+    #Test section
     implementations = [anagram,anagram2]
 
     words_input = ['cat', 'tablet', 'wolf', 'act', 'battle', 'flow', 'batlet', 'food']
