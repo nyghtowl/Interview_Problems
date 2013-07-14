@@ -1,5 +1,6 @@
+#!/usr/bin/env python
 ''' 
-Square a number
+Square a Number
 '''
 
 #Simple solution - O(1)

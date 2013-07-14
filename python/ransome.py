@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''
 String Match
 Find if a smaller string exists and/or can be created out of a larger string.

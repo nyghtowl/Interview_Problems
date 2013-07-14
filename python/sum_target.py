@@ -1,4 +1,4 @@
-
+#!/usr/bin/env python
 '''
 Sum Target
 
@@ -90,7 +90,7 @@ def sum_target6(target, num_list):
     return pairs
 
 
-#Test section.
+#Test section
 num_list = [5,3,5,7,1,2,5,6]
 num_list2 = [0,-1,5,0,3,1]
 target = 20
