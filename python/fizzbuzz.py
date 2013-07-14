@@ -2,10 +2,12 @@
 '''
 Fizz buzz problems
 
-write program that will return the list of numbers submitted except:
-if divisable by 3 - write fizz
-if divisable by 5 - write buzz
-if divisable by 15 - write fizz buzz
+Input: list of numbers
+
+Output: print numbers submitted except:
+  if divisable by 3 - write fizz
+  if divisable by 5 - write buzz
+  if divisable by 15 - write fizz buzz
 
 '''
 
