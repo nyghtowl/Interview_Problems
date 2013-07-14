@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''
 Make Change 
 (variation on sum target question but more than pair)
@@ -8,20 +9,21 @@ Output: Count of unique ways to make change OR
 
 '''
 
-#Count solution - needs to be finished
-def make_change(coins, target):
+#Count solution
+def make_change(coins, num_coins, target):
     count = 0
 
+    if target == 0:
+        return 1
+    
     if target < 0:
         return 0
-    elif target == 0:
-        return 1
-    else:
-        for coin in coins:
-            remaining = target-coin
-            count += make_change(coins, remaining)
-    return count
 
+    if num_coins <= 0 and target >= 1:
+        return 0
+
+    return make_change(coins, num_coins-1, target) + make_change(coins, num_coins, target - coins[num_coins-1])
+    
 
 #Recursive solution to return all unique combinations of change to make taret
 #Solution applies dynamic programming
@@ -64,6 +66,9 @@ def make_change2(target):
 # Test section
 
 coins = [1, 5, 10, 25]
+num_coins = len(coins)
+print num_coins
+
 target = 1
 target2 = 2
 target3 = 3
@@ -79,21 +84,21 @@ result3 = 1
 result4 = 2
 result5 = 2
 result6 = 4
-result7 = 12
-result8 = 12
+result7 = 13
+result8 = 13
 
 implementations = [make_change]
 
 for impl in implementations:
     print "trying %s" % impl
-    print "  f(%s) == %s: %s" % (target, result, impl(coins,target) == result)
-    print "  f(%s) == %s: %s" % (target2, result2, impl(coins,target2) == result2)
-    print "  f(%s) == %s: %s" % (target3, result3, impl(coins,target3) == result3)
-    print "  f(%s) == %s: %s" % (target4, result4, impl(coins,target4) == result4)
-    print "  f(%s) == %s: %s" % (target5, result5, impl(coins,target5) == result5)
-    print "  f(%s) == %s: %s" % (target6, result6, impl(coins,target6) == result6)
-    print "  f(%s) == %s: %s" % (target7, result7, impl(coins,target7) == result7)
-    print "  f(%s) == %s: %s" % (target8, result8, impl(coins,target8) == result8)
+    print "  f(%s) == %s: %s" % (target, result, impl(coins,num_coins,target) == result)
+    print "  f(%s) == %s: %s" % (target2, result2, impl(coins,num_coins,target2) == result2)
+    print "  f(%s) == %s: %s" % (target3, result3, impl(coins,num_coins,target3) == result3)
+    print "  f(%s) == %s: %s" % (target4, result4, impl(coins,num_coins,target4) == result4)
+    print "  f(%s) == %s: %s" % (target5, result5, impl(coins,num_coins,target5) == result5)
+    print "  f(%s) == %s: %s" % (target6, result6, impl(coins,num_coins,target6) == result6)
+    print "  f(%s) == %s: %s" % (target7, result7, impl(coins,num_coins,target7) == result7)
+    print "  f(%s) == %s: %s" % (target8, result8, impl(coins,num_coins,target8) == result8)
 
 result1_2 = ([1,0,0,0],)
 result2_2 = ([2,0,0,0],)
