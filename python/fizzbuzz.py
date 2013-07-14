@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 '''
 Fizz buzz problems
 
@@ -8,6 +9,7 @@ if divisable by 15 - write fizz buzz
 
 '''
 
+#O(n)
 def fizz_buzz(num):
     for n in range(1,(num+1)):
         if n % 15 == 0:
@@ -28,6 +30,7 @@ Alternative version
 
 '''
 
+#O(n)
 def fizz_buzz2(num):
     low_val = []
 
@@ -74,6 +77,7 @@ has_5 = True
 has_7 = True
 '''
 
+#O(n)
 def fizz_buzz_combos(start, end):
     ans = {}
     while len(ans) < 16 and start <= end:
@@ -91,18 +95,10 @@ def fizz_buzz_combos(start, end):
 
     return sorted(ans.values())
 
-#Test above variations
+#Test section
 if __name__ == '__main__':
     print "fizz buzz 1st version:\n", fizz_buzz(18)
     print "fizz buzz 2nd version:\n", fizz_buzz2(40)
     print "fizz buzz 3rd version:\n", fizz_buzz_combos(0,1000)
 
 
-# implementations = [fizz_buzz, fizz_buzz2, fizz_buzz_combos]
-
-# for impl in implementations:
-#     print "trying %s" % impl
-#     print "  f(0) == 1: %s" % (impl(0))
-#     print "  f(1) == 1: %s" % (impl(1))
-#     print "  f(50) == 2: %s" % (impl(50))
-#     print "  f(500) == 6: %s" % (impl(500))
