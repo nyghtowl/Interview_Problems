@@ -48,11 +48,12 @@ def dict_mean_time(list_dicts):
 
     return get_mean(time_list)
 
-# Test section
-list_dicts = [{1: "hello at 9:30"}, {
-    2: "night at 10:30", 3: "moon at 8:00"}, {0: "no"}]
-implementations = [dict_mean_time]
+if __name__ == '__main__':
+    # Test section
+    list_dicts = [{1: "hello at 9:30"}, {
+        2: "night at 10:30", 3: "moon at 8:00"}, {0: "no"}]
+    implementations = [dict_mean_time]
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "  f(list_dicts) == '9:20': %s" % (impl(list_dicts) == '9:20')
+    for impl in implementations:
+        print "trying %s" % impl
+        print "  f(list_dicts) == '9:20': %s" % (impl(list_dicts) == '9:20')
