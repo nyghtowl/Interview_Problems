@@ -56,13 +56,14 @@ def quick_sort3(l):
                 right.append(l)
     return quick_sort3(left) + quick_sort3(right)
 
-#Test section
-l = [5,8,3,1,2,7,9,6]
-result = [1,2,3,5,6,7,8,9]
+if __name__ == '__main__':
+    #Test section
+    l = [5,8,3,1,2,7,9,6]
+    result = [1,2,3,5,6,7,8,9]
 
-implementations = [quick_sort, quick_sort2, quick_sort3]
+    implementations = [quick_sort, quick_sort2, quick_sort3]
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "%s == %s" % (impl,result)
+    for impl in implementations:
+        print "trying %s" % impl
+        print "%s == %s" % (impl,result)
 
