@@ -97,8 +97,8 @@ def fizz_buzz_combos(start, end):
 
     return sorted(ans.values())
 
-#Test section
 if __name__ == '__main__':
+    #Test section
     print "fizz buzz 1st version:\n", fizz_buzz(18)
     print "fizz buzz 2nd version:\n", fizz_buzz2(40)
     print "fizz buzz 3rd version:\n", fizz_buzz_combos(0,1000)
