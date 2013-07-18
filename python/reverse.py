@@ -84,6 +84,8 @@ def reverse_list2(alist):
 
 
 if __name__ == '__main__':
+
+    # Test section
     print "reverse_str:\t", reverse_str("string")
     print "reverse_str2:\t", reverse_str2("string")
     print "reverse_str3:\t", reverse_str3("string")
