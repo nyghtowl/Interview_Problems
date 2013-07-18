@@ -44,20 +44,21 @@ Output: Length of the longest substring of that string consisting of the same le
 def f5(x):
     pass #To be answered
 
-#Test section
+if __name__ == '__main__':
+    #Test section
 
-#Input
-int_list = [1,2,6,5]
-float_list = [1.5,2.5,3.5]
-num = 32
+    #Input
+    int_list = [1,2,6,5]
+    float_list = [1.5,2.5,3.5]
+    num = 32
 
-#Output
-int_list_result = False
-int_list_result2 = [1,4,36,25]
-float_list_result = 2.5
-sum_num_result = 10
+    #Output
+    int_list_result = False
+    int_list_result2 = [1,4,36,25]
+    float_list_result = 2.5
+    sum_num_result = 10
 
-print "f(%s) == %s: %s" % (int_list, int_list_result, f(int_list) == int_list_result)
-print "f2(%s) == %s: %s" % (int_list, int_list_result2, f2(int_list) == int_list_result2) 
-print "f3(%s) == %s: %s" % (float_list, float_list_result,f3(float_list) == float_list_result)
-print "f4(%s) == %s: %s" % (num, sum_num_result, f4(num) == sum_num_result)
+    print "f(%s) == %s: %s" % (int_list, int_list_result, f(int_list) == int_list_result)
+    print "f2(%s) == %s: %s" % (int_list, int_list_result2, f2(int_list) == int_list_result2) 
+    print "f3(%s) == %s: %s" % (float_list, float_list_result,f3(float_list) == float_list_result)
+    print "f4(%s) == %s: %s" % (num, sum_num_result, f4(num) == sum_num_result)
