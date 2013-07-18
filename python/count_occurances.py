@@ -64,14 +64,15 @@ def list_count4(hal, n):
         if hal[pivot] < n:
             return (count + list_count(hal[pivot+1:], n))
 
-#Test section
-implementations = [list_count,list_count2,list_count3,list_count4]
-num_list = [2,4,5,5,5,6,7]
+if __name__ == '__main__':
+    #Test section
+    implementations = [list_count,list_count2,list_count3,list_count4]
+    num_list = [2,4,5,5,5,6,7]
 
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "  f(%s, 7) == 1: %s" % (num_list, (impl(num_list,7) == 1))
-    print "  f(%s, 5) == 1: %s" % (num_list, (impl(num_list,5) == 3))
+    for impl in implementations:
+        print "trying %s" % impl
+        print "  f(%s, 7) == 1: %s" % (num_list, (impl(num_list,7) == 1))
+        print "  f(%s, 5) == 1: %s" % (num_list, (impl(num_list,5) == 3))
 
-print "f(%s) == %s : %s" % ('hello world', 3, (high_occ('hello world') == 3))
+    print "f(%s) == %s : %s" % ('hello world', 3, (high_occ('hello world') == 3))
