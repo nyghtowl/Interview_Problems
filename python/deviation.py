@@ -81,7 +81,6 @@ def max_deviation4(int_list, seq_len):
     return max(deviations)
 
 if __name__ == '__main__':
-
     # Test section
     implementations = [
         max_deviation, max_deviation2, max_deviation3, max_deviation4]
