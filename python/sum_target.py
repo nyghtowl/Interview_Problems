@@ -90,43 +90,44 @@ def sum_target6(target, num_list):
     return pairs
 
 
-#Test section
-num_list = [5,3,5,7,1,2,5,6]
-num_list2 = [0,-1,5,0,3,1]
-target = 20
-target2 = 8
-target3 = 0
+if __name__ == '__main__':
+    #Test section
+    num_list = [5,3,5,7,1,2,5,6]
+    num_list2 = [0,-1,5,0,3,1]
+    target = 20
+    target2 = 8
+    target3 = 0
 
-#True/false results
-result = True
-result2 = False
+    #True/false results
+    result = True
+    result2 = False
 
-implementations = [sum_target, sum_target2]
+    implementations = [sum_target, sum_target2]
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "f(%s) == []: %s" % (target, impl(target, num_list) == result2)
-    print "f(%s) == [5,3] or [7,1]: %s" % (target2, impl(target2, num_list) == result)
-    print "f(%s) == []: %s" % (target3, impl(target3, num_list) == result2)
+    for impl in implementations:
+        print "trying %s" % impl
+        print "f(%s) == []: %s" % (target, impl(target, num_list) == result2)
+        print "f(%s) == [5,3] or [7,1]: %s" % (target2, impl(target2, num_list) == result)
+        print "f(%s) == []: %s" % (target3, impl(target3, num_list) == result2)
 
 
-#List of values results
-result3 = []
-result4 = [[5,3],[7,1],[2,6]]
-result5 = []
+    #List of values results
+    result3 = []
+    result4 = [[5,3],[7,1],[2,6]]
+    result5 = []
 
-implementations2 = [sum_target3, sum_target4]
-for impl in implementations2:
-    print "trying %s" % impl
-    print "f(%s) == %s: %s" % (num_list, target, impl(target, num_list) == result3)
-    print "f(%s) == %s: %s" % (num_list, target2, impl(target2, num_list) == result4)
-    print "f(%s) == %s: %s" % (num_list, target3, impl(target3, num_list) == result5)
-    print impl(target2, num_list)
+    implementations2 = [sum_target3, sum_target4]
+    for impl in implementations2:
+        print "trying %s" % impl
+        print "f(%s) == %s: %s" % (num_list, target, impl(target, num_list) == result3)
+        print "f(%s) == %s: %s" % (num_list, target2, impl(target2, num_list) == result4)
+        print "f(%s) == %s: %s" % (num_list, target3, impl(target3, num_list) == result5)
+        print impl(target2, num_list)
 
-result6 = {2: 6, 5: 3, 7: 1}
+    result6 = {2: 6, 5: 3, 7: 1}
 
-implementations2 = [sum_target5, sum_target6]
+    implementations2 = [sum_target5, sum_target6]
 
-for impl in implementations2:
-    print "trying %s" % impl
-    print "f(%s) == %s: %s" % (num_list, target2, impl(target2, num_list) == result6)
+    for impl in implementations2:
+        print "trying %s" % impl
+        print "f(%s) == %s: %s" % (num_list, target2, impl(target2, num_list) == result6)
