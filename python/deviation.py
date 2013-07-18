@@ -80,25 +80,26 @@ def max_deviation4(int_list, seq_len):
     deviations = ((max(subseq) - min(subseq)) for subseq in subseqs)
     return max(deviations)
 
+if __name__ == '__main__':
 
-# Test section
-implementations = [
-    max_deviation, max_deviation2, max_deviation3, max_deviation4]
-int_list = [1, 2, 3, 4, 5, 6]
-seq_len = 2
-result = 1
+    # Test section
+    implementations = [
+        max_deviation, max_deviation2, max_deviation3, max_deviation4]
+    int_list = [1, 2, 3, 4, 5, 6]
+    seq_len = 2
+    result = 1
 
-int_list2 = [6, 9, 4, 9, 4, 7, 7, 4, 1]
-seq_len2 = 3
-result2 = 6
+    int_list2 = [6, 9, 4, 9, 4, 7, 7, 4, 1]
+    seq_len2 = 3
+    result2 = 6
 
-int_list3 = [1, 2, 3, 4, 5, 6]
-seq_len3 = 5
-result3 = 4
+    int_list3 = [1, 2, 3, 4, 5, 6]
+    seq_len3 = 5
+    result3 = 4
 
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "  f(%s, %s) == %s: %s" % (int_list, seq_len, result, (impl(int_list, seq_len) == result))
-    print "  f(%s, %s) == %s: %s" % (int_list2, seq_len2, result2, (impl(int_list2, seq_len2) == result2))
-    print "  f(%s, %s) == %s: %s" % (int_list3, seq_len3, result3, (impl(int_list3, seq_len3) == result3))
+    for impl in implementations:
+        print "trying %s" % impl
+        print "  f(%s, %s) == %s: %s" % (int_list, seq_len, result, (impl(int_list, seq_len) == result))
+        print "  f(%s, %s) == %s: %s" % (int_list2, seq_len2, result2, (impl(int_list2, seq_len2) == result2))
+        print "  f(%s, %s) == %s: %s" % (int_list3, seq_len3, result3, (impl(int_list3, seq_len3) == result3))
