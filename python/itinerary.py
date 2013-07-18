@@ -36,14 +36,17 @@ def print_cities(visit_count, city_pairs):
                     orig = city[1]
                     city_pairs.pop(index)
 
-# Test section
 
-# City pairs format is (from, to)
-city_pairs = [('SFO','LAX'),('BOS','DEN'),('LAX','BOS'),('JFK','SFO')]
-result = [('JFK','SFO'),('SFO','LAX'),('LAX','BOS'),('BOS','DEN')]
+if __name__ == '__main__':
+        
+    # Test section
 
-implementations = [sort_cities]
+    # City pairs format is (from, to)
+    city_pairs = [('SFO','LAX'),('BOS','DEN'),('LAX','BOS'),('JFK','SFO')]
+    result = [('JFK','SFO'),('SFO','LAX'),('LAX','BOS'),('BOS','DEN')]
 
-for impl in implementations:
-    print 'for %s in implementations' % impl
-    print 'f(%s) == %s: %s' % (city_pairs, result, impl(city_pairs) == result)
+    implementations = [sort_cities]
+
+    for impl in implementations:
+        print 'for %s in implementations' % impl
+        print 'f(%s) == %s: %s' % (city_pairs, result, impl(city_pairs) == result)
