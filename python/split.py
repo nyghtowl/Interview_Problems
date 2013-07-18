@@ -21,5 +21,7 @@ def split(string, char=None):
             create_list.append(string[start:len(string)])
     return create_list
 
-print split('s p l i t', ' ')
-# how to run it with no split value?
+if __name__ == '__main__':
+    # Test section
+    print split('s p l i t', ' ')
+    # how to run it with no split value?
