@@ -36,15 +36,16 @@ def fib_recursive(num):
     else:
         return fib_recursive(num - 1) + fib_recursive(num - 2)
 
+if __name__ == '__main__':
 
-# Test section
-implementations = [fib_iteration, fib_recursive]
+    # Test section
+    implementations = [fib_iteration, fib_recursive]
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "  f(0) == 0: %s" % (impl(0) == 0)
-    print "  f(1) == 1: %s" % (impl(1) == 1)
-    print "  f(2) == 1: %s" % (impl(2) == 1)
-    print "  f(3) == 2: %s" % (impl(3) == 2)
-    print "  f(6) == 8: %s" % (impl(6) == 8)
-    print "  f(13) == 233: %s" % (impl(13) == 233)
+    for impl in implementations:
+        print "trying %s" % impl
+        print "  f(0) == 0: %s" % (impl(0) == 0)
+        print "  f(1) == 1: %s" % (impl(1) == 1)
+        print "  f(2) == 1: %s" % (impl(2) == 1)
+        print "  f(3) == 2: %s" % (impl(3) == 2)
+        print "  f(6) == 8: %s" % (impl(6) == 8)
+        print "  f(13) == 233: %s" % (impl(13) == 233)
