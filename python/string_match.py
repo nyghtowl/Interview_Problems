@@ -34,7 +34,7 @@ def find_main_str(str1, str2):
     if len(str1) > len(str2):
         return (str1, str2)
     else:
-        return (str1, str2)
+        return (str2, str1)
 
 #O(n)
 def match2(str1,str2):
