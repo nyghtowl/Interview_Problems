@@ -33,19 +33,20 @@ def list_int4(list1, list2):
     lc = [list2[i] for i in xrange(len(list2)) if list2[i] in s1]
     return set(list(lc))
 
-#Test section 
-implementations = [list_int, list_int2, list_int3, list_int4]
-list1 = [9,-1,10,2,300,3,0,-10]
-list2 = [5,4,7,-1,8,9]
-list3 = [-2,0,2000,30,16,85,903,-10,567,4,300]
-list4 = [-2,2000,30,16,85,903,567,4]
+if __name__ == '__main__':
+    #Test section 
+    implementations = [list_int, list_int2, list_int3, list_int4]
+    list1 = [9,-1,10,2,300,3,0,-10]
+    list2 = [5,4,7,-1,8,9]
+    list3 = [-2,0,2000,30,16,85,903,-10,567,4,300]
+    list4 = [-2,2000,30,16,85,903,567,4]
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "  f(list1, list2) == [9,-1]: %s" % (impl(list1, list2) == set([9,-1]))
-    print "  f(list1, list3) == [0,-10,300]: %s" % (impl(list1, list3) == set([0,-10,300]))
-    print "  f(list2, list3) == [4]: %s" % (impl(list2, list3) == set([4]))
-    print "  f(list1, list4) == []: %s" % (impl(list1, list4) == set([]))
-    print impl(list1, list3)
+    for impl in implementations:
+        print "trying %s" % impl
+        print "  f(list1, list2) == [9,-1]: %s" % (impl(list1, list2) == set([9,-1]))
+        print "  f(list1, list3) == [0,-10,300]: %s" % (impl(list1, list3) == set([0,-10,300]))
+        print "  f(list2, list3) == [4]: %s" % (impl(list2, list3) == set([4]))
+        print "  f(list1, list4) == []: %s" % (impl(list1, list4) == set([]))
+        print impl(list1, list3)
 
  
