@@ -103,25 +103,26 @@ def match4(s1,s2):
 
     return found
 
-#Test section
-str1 = 'Cat goes crazy'
-str1a = 'crazy'
-str1b = 'Cat'
+if __name__ == '__main__':
+    #Test section
+    str1 = 'Cat goes crazy'
+    str1a = 'crazy'
+    str1b = 'Cat'
 
-str2 = 'this is a hash'
-str2a = 'hash'
-str2b = 'not'
+    str2 = 'this is a hash'
+    str2a = 'hash'
+    str2b = 'not'
 
-result = True
-result2 = False
+    result = True
+    result2 = False
 
-implementations = [match, match2, match3]
+    implementations = [match, match2, match3]
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "f(%s) == %s: %s" % (str1a, result, (impl(str1, str1a) == result))
-    print "f(%s) == %s: %s" % (str1b, result, (impl(str1, str1b) == result))
-    print "f(%s) == %s: %s" % (str2a, result, (impl(str2, str2a) == result))
-    print "f(%s) == %s: %s" % (str2b, result2, (impl(str2, str2b) == result2))
+    for impl in implementations:
+        print "trying %s" % impl
+        print "f(%s) == %s: %s" % (str1a, result, (impl(str1, str1a) == result))
+        print "f(%s) == %s: %s" % (str1b, result, (impl(str1, str1b) == result))
+        print "f(%s) == %s: %s" % (str2a, result, (impl(str2, str2a) == result))
+        print "f(%s) == %s: %s" % (str2b, result2, (impl(str2, str2b) == result2))
 
 
