@@ -19,13 +19,14 @@ def small_sub2(l,k):
     l.sort()
     return l[0:k]
 
-#Test section
-num_list = [1,10,3,9,5,-1]
-num_vals = 3
+if __name__ == '__main__':
+    #Test section
+    num_list = [1,10,3,9,5,-1]
+    num_vals = 3
 
-implementations = [small_sub, small_sub2]
-result = [-1,1,3]
+    implementations = [small_sub, small_sub2]
+    result = [-1,1,3]
 
-for impl in implementations:
-    print "trying %s" % impl
-    print "  f(%s) == %s: %s" % (impl, result, impl(num_list,num_vals) == result)
+    for impl in implementations:
+        print "trying %s" % impl
+        print "  f(%s) == %s: %s" % (impl, result, impl(num_list,num_vals) == result)
