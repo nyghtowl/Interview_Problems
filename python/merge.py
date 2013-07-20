@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 '''
-Mergesort 
+Merge Sort 
 
 Input: words
 Output: sorted array of items in O(n log n)
