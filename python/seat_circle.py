@@ -22,4 +22,4 @@ def last_person(seats):
 
 #Test section
 
-seats = [1...100]
+seats = [i for i in range(1, 101)]
