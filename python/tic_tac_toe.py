@@ -1,5 +1,9 @@
 '''
 Tic-tac-toe
+
+Input: Define the class to build a Tic-tac-toe board and game
+Output: Run a game and return the winner
+
 '''
 
 class Board():
