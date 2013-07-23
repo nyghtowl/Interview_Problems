@@ -1,7 +1,13 @@
-// Write a script that will print 1-100 except:
-// if divisable by 3 - write fizz
-// if divisable by 5 - write buzz
-// if divisable by 15 - write fizz buzz
+'''
+Fizzbuzz
+
+Input: list of integers
+Output: Write a script that will print 1-100 except:
+
+if divisable by 3 - write fizz
+if divisable by 5 - write buzz
+if divisable by 15 - write fizz buzz
+'''
 
 var list_of_numbers = [1, 2, 3, 4, 5, 6, 15, 28, 30, 33, 35, 36, 40, 42];
 
@@ -23,6 +29,6 @@ function fizzbuzz(list_of_numbers) {
 	}
 }
 
-
+// Test section
 fizzbuzz(list_of_numbers);
 
