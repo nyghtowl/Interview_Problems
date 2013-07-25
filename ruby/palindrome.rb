@@ -1,17 +1,21 @@
 '''
-Check if there is a palindrome - Ruby
+Palindrome
+
+Input: word
+Output: true if a palindrome
+
 '''
 
-#Standard Ruby class and check for reverse string
+# Standard Ruby class and check for reverse string
 class Word
 
     def palindrome?(string)
-        if string == string.reverse
+        string == string.reverse
     end
 
 end
 
-#Alternative Ruby class to inheret from String class and check for reverse string
+# Alternative Ruby class to inheret from string class and check for reverse string
 
 class Word2 < String
 
@@ -21,7 +25,17 @@ class Word2 < String
 
 end
 
-#test
-w = Word.new #create new instance
-w.palindrome?("anagram")
-w.palindrome?("laal")
+
+if __FILE__ == $0
+	# Test section
+	w = Word.new # Create new instance
+
+	inputs = ["anagram", "laal"]
+	results = [false, true]
+
+
+	inputs.each_with_index {|input, index|
+		ans = w.palindrome?(input) == results[index]
+		puts "%s(#{input.reverse}) == %s : %s" % ['palindrome?', results[index], ans]
+	}
+end
