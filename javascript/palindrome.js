@@ -1,4 +1,10 @@
-// Check if a given word is a palindrome (same forward and backwards)
+'''
+Palindrome
+
+Input: word
+Output: true if a palindrome
+
+'''
 
 function isPalindrome (word) {
 	var half = Math. floor(word.length / 2);
