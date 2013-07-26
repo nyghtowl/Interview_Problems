@@ -1,5 +1,5 @@
 '''
-Fizzbuzz
+Fizzbuzz: A good place to start.
 
 Input: list of integers
 Output: Write a script that will print 1-100 except:
