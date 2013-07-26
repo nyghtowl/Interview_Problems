@@ -5,11 +5,12 @@ Input: 100 chairs in a circle and they are labeled from 1 to 100
 
 Condition: 
 Pattern of change is that seat 1 is asked to leave, seat 2 is asked to stay, seat 3 is asked to leave...
-Pattern continues of skipping one and asking one to leave till one left
+Pattern continues of skipping one and asking one to leave till only one is left
 
 Output: Return who the last person left
 '''
 
+# Pseudo coded answer in class
 def last_person(seats):
     pop_odd = True
     while len(seats) > 1:
@@ -20,6 +21,23 @@ def last_person(seats):
                 del seats[i]
 
 
+# 
+def last_person2(seats):
+    # Skip marker for first num in list if last num in is deleted from previous loop
+    skip = False 
+    while len(seats) > 1:
+        for index, seat in enumerate(seats):
+            if skip:
+                skip = False
+                pass
+            else:
+                x = seats.pop(index)
+            if index == len(seats):
+                skip = True
+    return seats
+
 #Test section
 
 seats = [i for i in range(1, 101)]
+
+print last_person2(seats)
