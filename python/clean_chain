@@ -1,0 +1,13 @@
+## Here is the problem:
+
+A clean chain of length "n" is a sequence of numbers where the sum of the first (n-1) numbers is evenly divisible by the nth number -- in other words, the sum of all but the last number is evenly divisble by the nth number.
+
+For example, [2, 4. 6. 8. 10] is a clean chain because (2 + 4 + 6 + 8) = 20, which is evenly divisible by 10.
+
+The first clean chain of a sequence of consecutive prime numbers is just [2], with length 1.
+
+The next is [2, 3, 5], with length 3.
+
+The third is [2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71], with length 20.
+
+Find the 4th clean chain formed from only primes. BONUS - find the length of the 5th one, too.
