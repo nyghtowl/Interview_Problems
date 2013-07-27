@@ -71,5 +71,5 @@ if __name__ == '__main__':
 
     for impl in implementations:
         seats = [i for i in range(1,101)]
-        print '%s returns %s' % (impl, impl(seats))
+        print '%s returns %s' % (impl.__name__, impl(seats))
 
