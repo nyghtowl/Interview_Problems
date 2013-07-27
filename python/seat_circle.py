@@ -20,7 +20,7 @@ def last_person(seats):
             elif not pop_odd and i % 2 == 0:
                 del seats[i]
 
-# 
+# Melanie
 def last_person2(seats):
     # Skip marker for first num in list if last num in is deleted from previous loop
     skip = False 
@@ -34,14 +34,14 @@ def last_person2(seats):
                 skip = True
     return seats
 
-#
+# Erica
 def last_person3(seats):
     odd_toggle = 0
     while len(seats) > 1:
         if len(seats) % 2 == 0 and odd_toggle == 0:
             del seats[odd_toggle::2]
         elif len(seats) % 2 == 0 and odd_toggle == 1:
-            del seats[odd_togg::2]
+            del seats[odd_toggle::2]
         elif len(seats) % 2 == 1 and odd_toggle == 0:
             del seats[odd_toggle::2]
             odd_toggle = 1
@@ -50,7 +50,7 @@ def last_person3(seats):
             odd_toggle == 0
     return seats
 
-# List comprehension
+# Jesse - List comprehension
 def last_person4(seats):
     while len(seats) > 1:
         pop_odd = (len(seats) % 2 == 0)
@@ -67,8 +67,9 @@ if __name__ == '__main__':
 
     implementations = [last_person2, last_person3, last_person4]
 
-    seats = [i for i in range(1, 6)]
+
 
     for impl in implementations:
+        seats = [i for i in range(1,101)]
         print '%s returns %s' % (impl, impl(seats))
 
