@@ -28,7 +28,6 @@ def last_person2(seats):
         for index, seat in enumerate(seats):
             if skip:
                 skip = False
-                pass
             else:
                 x = seats.pop(index)
             if index == len(seats):
@@ -36,10 +35,9 @@ def last_person2(seats):
     return seats
 
 #
-seats = range(1, 101)
-odd_toggle = 0
 
 def last_person3(seats):
+    odd_toggle = 0
     while len(seats) > 1:
         if len(seats) % 2 == 0 and odd_toggle == 0:
             del seats[odd_toggle::2]
