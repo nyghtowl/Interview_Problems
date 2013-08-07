@@ -11,15 +11,13 @@ import math
 
  # Recursive solution
 
-
 def rec_fact(n):
     if n == 0:
         return 1
     else:
         return (n * rec_fact(n - 1))
 
-# While loop iteration solution
-
+# While loop iteration solution - O(n)
 
 def loop_sol_1(n):
     if n == 0:
@@ -30,8 +28,7 @@ def loop_sol_1(n):
         n *= num
     return n
 
-# For loop iteration solution
-
+# For loop iteration solution - O(n)
 
 def loop_sol_2(n):
     if n == 0:
@@ -40,8 +37,7 @@ def loop_sol_2(n):
         n *= num
     return n
 
- # List comprehension solution
-
+ # List comprehension solution - O(n)
 
 def functional(n):
     return reduce(lambda x, y: x * y, [1] + range(1, n + 1))

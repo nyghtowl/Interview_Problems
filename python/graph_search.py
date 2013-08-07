@@ -81,11 +81,11 @@ def ospf(home, dest, graph):
             pass
 
 # Track the number of results mapped
-
+if __name__ == '__main__':
 # Test search
 home = 1
 dest = 5
 cities = [1,2,3,4,5,6,7]
 road_graph = [(1,3),(3,4),(2,3),(2,4),(5,6)]
 
-print ospf(hoem, dest, graph)
+print ospf(home, dest, graph)

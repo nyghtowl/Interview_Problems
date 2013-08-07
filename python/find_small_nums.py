@@ -6,7 +6,7 @@ Input: list of intergers and number of values to return
 Output: list contains the number small values in the list
 '''
 
-#Using embeded for loops - O(n^2)
+# Using embeded for loops - O(n^2)
 def small_sub(l,k):
     for j in range(len(l)):
         for i in range(len(l)):
@@ -14,7 +14,7 @@ def small_sub(l,k):
                 l[i], l[j] = l[j], l[i]
     return l[0:k]
 
-#Apply sort - O(n)
+# Apply sort - O(n)
 def small_sub2(l,k):
     l.sort()
     return l[0:k]

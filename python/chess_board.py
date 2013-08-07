@@ -7,7 +7,7 @@ Input: draw_white and draw_black functions exist to draw the squares
 Output:
 Draw a chess board that is 8 x 8 but the better solution will be flexible in size.
 
-Trick: When drawn out, when the numbers on a grid are both even or both odd then they are the same color.
+Trick: When drawn out, the numbers on a grid are both even or both odd then they are the same color.
 
 '''
 

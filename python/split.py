@@ -5,6 +5,8 @@ Split
 Input: string and and character to split on
 Output: create list with the string split based on character submitted
 
+Challenge: How to run it with no split value?
+
 '''
 
 def split(string, char=None):
@@ -24,4 +26,4 @@ def split(string, char=None):
 if __name__ == '__main__':
     # Test section
     print split('s p l i t', ' ')
-    # how to run it with no split value?
+
