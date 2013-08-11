@@ -34,7 +34,7 @@ def last_person2(seats):
                 skip = True
     return seats
 
-# Erica - needs adjustment
+# Erica - incorrect copy - need to fix
 def last_person3(seats):
     odd_toggle = 0
     while len(seats) > 1:
