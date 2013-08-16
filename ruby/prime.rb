@@ -6,6 +6,7 @@ Output: set of prime divsors of a number
 
 '''
 
+# O (n^2)
 def find_primes(num)
 	possible_divisor = 2
 	primes = Array.new([])

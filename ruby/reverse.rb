@@ -9,7 +9,19 @@ Out: reverse of what is submitted
 
 # O(n)
 def reverse_str(word)
-    return word.reverse!
+    word.reverse!
+end
+
+def reverse_str2(word)
+	len = word.length
+	half_len = len/2
+	(0..half_len).each do |i|
+		len -= 1
+		temp = word[i]
+		word[i] = word[len]
+		word[len] = temp
+	end
+	word
 end
 
 if __FILE__ == $0
@@ -20,8 +32,8 @@ if __FILE__ == $0
 	results = ['desserts', 'olleh']
 
 	inputs.each_with_index {|input, index|
-		ans = reverse_str(input) == results[index]
-		puts "%s(#{input.reverse}) == %s : %s" % ['reverse_str', results[index], ans]
+		ans = reverse_str2(input) == results[index]
+		puts "%s(#{input.reverse}) == %s : %s" % ['reverse_str2', results[index], ans]
 	}
 end 
 
