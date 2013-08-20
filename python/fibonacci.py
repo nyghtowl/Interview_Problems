@@ -4,8 +4,12 @@ Fibonacci - each number equals the sum of the two preceding numbers.
 
 Fn = Fn-1 + Fn-2
 
-Input: number
-Output: fibonacci result in the sequence starting with 0
+Input: the point in the sequence to take a fibonnaci number
+Output: the fibonnaci number at the point in a sequence starting a 0
+
+Ex: 
+At position 0 the Fib number is 0. 
+At position 4 the Fib number is 3 (adding 1, 2 which are the numbers before)
 
 Challenge:
 * Account for negative or fraction numbers
