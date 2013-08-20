@@ -23,6 +23,6 @@ To use:
 ```bash
     # Clone repsitory.
     git clone https://github.com/nyghtowl/Interview_Problems.git
-    # Run files with python.
-    python <filename> 
+    # Run files with python or ruby.
+    python <filename> or ruby <filename>
 ```
