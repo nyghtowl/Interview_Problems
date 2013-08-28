@@ -13,10 +13,14 @@ end
 # Loop - O(n)
 def square2(num)
 	result = []
-	num.each do |n|
-		result << n
+	if num != 0
+		(0...num).each do |n|
+			result << num
+		end
+		result.inject(:+)
+	else
+		num
 	end
-	result.inject(:+)
 end
 
 if __FILE__ == $0
