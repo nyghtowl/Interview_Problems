@@ -5,18 +5,18 @@ Input: list of Size N, integers from 1 to n
 Output: print out if there are duplicates
 '''
 
+# O(n^2)
 def find_dup(list1)
 	ans = Array.new
 	list1.each_with_index do |l, i|
-		if i < list1.length
-			list2 = list1[i+1,]
-			puts list2
-			if list2.include? l
+		len = list1.length
+		if i < len
+			if list1[i+1..len].include?(l)
 				ans << l
 			end
 		end
 	end
-	ans
+	ans.sort
 end
 
 if __FILE__ == $0
