@@ -1,0 +1,48 @@
+baseball players
+
+name/player
+team/player
+
+player stats:
+- batting
+- rbi 
+- bases stolen -> bases
+- earn run avg
+
+Create own stats
+- avg batting avg over 6 months
+
+input: csv data dump with a table, players name, team name, date, stats (as of that date)
+
+output: query needed (e.g. given a team, player - give me all the rbi)
+
+players
+name | team | player id
+
+stats
+player id | stats id | date |avg | rbi | bases
+
+pitcher stats
+playid | ERA | id
+
+split out table for optimizations
+
+OR
+
+highly normal schema - use composit key
+ 
+concetps
+		id | description
+metrics
+avg
+era
+batting
+etc
+
+series(time)
+id | concept key | duration
+
+player id is primary key
+
+stats
+play id | series.id | concept | date

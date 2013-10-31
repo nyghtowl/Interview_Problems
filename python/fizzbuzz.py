@@ -9,7 +9,6 @@ Output: print numbers submitted except:
   if divisable by 5 - write buzz
   if divisable by 15 - write fizz buzz
 
-1000 - Juython
 
 '''
 
@@ -24,6 +23,7 @@ def fizz_buzz(num):
             print "fizz"
         else:
             print n
+
 
 '''
 Alternative version
