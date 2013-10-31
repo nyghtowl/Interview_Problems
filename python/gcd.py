@@ -24,13 +24,22 @@ def gcd2(a, b):
     while a % testValue != 0 or b % testValue != 0:
         testValue -= 1
 
+def gcd_recursion(a, b):
+    '''
+    Applying Euclid's algorithm
+    '''
+    if b == 0:
+        return a
+    else:
+        return gcd_recursion(b, a%b)
 
 if __name__ == '__main__':
     # Test section
-    implementations = [gcd, gcd2]
+    implementations = [gcd, gcd2, gcd_recursion]
 
     for impl in implementations:
         print "trying %s" % impl
         print "  f(2,12) == 2: %s" % (gcd(2,12) == 2)
         print "  f(6,12) == 6: %s" % (gcd(6,12) == 6)
         print "  f(17,12) == 1: %s" % (gcd(17,12) == 1)
+        print "  f(160,96) == 32: %s" % (gcd(160,96) == 32)
