@@ -20,9 +20,9 @@ def monthly_payment(balance, monthlyInterestRate, monthlyPaymentRate, numbermont
         balance = monthlyUnpaidBalance + monthlyInterestRate * monthlyUnpaidBalance 
         totalPaid += minimumMonthlyPayment
 
-        print("Month: %d" % month)
-        print("Minimum monthly payment: %d" % round(minimumMonthlyPayment,2))
-        print("Remaining balance: %d" % round(balance,2))
+        print("Month: %.2f" % month)
+        print("Minimum monthly payment: %.2f" % minimumMonthlyPayment)
+        print("Remaining balance: %.2f" % balance)
 
     return (totalPaid, balance)
 
@@ -38,8 +38,8 @@ def min_payment(balance, annualInterestRate, monthlyPaymentRate):
     monthlyInterestRate = monthly_interest(annualInterestRate, numbermonths)
     totalPaid, balance = monthly_payment(balance, monthlyInterestRate, monthlyPaymentRate, numbermonths)
 
-    print("Total paid: %d" % round(totalPaid,2))
-    print("Remaining balance: %d" % round(balance,2))
+    print("Total paid: %.2f" % totalPaid)
+    print("Remaining balance: %.2f" % balance)
 
 def calc_balance(monthlyPayment, monthlyInterestRate, balance, period):
     '''
@@ -68,7 +68,7 @@ def year_payoff(balance, annualInterestRate):
         if balance <= 0:
             paid = True
 
-    print("Lowest Payment %d" % monthlyPayment)
+    print("Lowest Payment %.2f" % monthlyPayment)
 
 def bisection_year_payoff(balance, annualInterestRate):
     '''
@@ -94,7 +94,7 @@ def bisection_year_payoff(balance, annualInterestRate):
         elif  balance < epsilon:
             monthlyPaymentUpperBound = monthlyPayment
 
-    print("Lowest Payment %d" % round(monthlyPayment,2))
+    print("Lowest Payment %.2f" % monthlyPayment)
 
 #Tests
 
