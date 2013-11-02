@@ -28,6 +28,8 @@ def fizz_buzz(num_list)
     response[1..num_list.length]
 end
 
+
+
 if __FILE__ == $0
 
     # Test section
