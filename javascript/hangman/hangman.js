@@ -7,22 +7,37 @@
 
   // Pick the word
   Hangman.App = function(){
-    this.secretWordController = new Hangman.SecretWordController('art');
+    this.secretWordController = new Hangman.SecretWordController('at');
+    this.guessCount = 2;
     this.keepGuessing();
 
-    console.log('Thanks for playing!')
   }
 
   Hangman.App.prototype.keepGuessing = function() {
     alert('Welcome to the game, Hangman! I am thinking of a word that is ' + this.secretWordController.secretWord.length + ' letters long.');
-    while (!this.secretWordController.isDone()){
+
+    while (this.guessCount > 0 && !this.secretWordController.isDone()){
       this.doOneTurn();
+    }
+
+    if (this.secretWordController.isDone()) {
+      console.log('Congratulations, you won!');
+    } else {
+      console.log('Sorry, you ran out of guesses. The word was:', this.secretWordController.secretWord);      
     }
   }
 
   Hangman.App.prototype.doOneTurn = function() {
-    var guess = prompt('Guess a letter.');
-    this.secretWordController.processGuess(guess);
+    console.log('You have ' + this.guessCount + ' guesses left.');
+    var guess = prompt('Guess a letter:');
+    var guessCorrect = this.secretWordController.processGuess(guess);
+
+    if (guessCorrect) {
+      console.log("Good guess: ");
+    } else {
+      console.log("Oops! That letter is not in my word:");
+      this.guessCount -= 1;
+    }
     console.log(this.secretWordController.getRevealed());
   }
 
