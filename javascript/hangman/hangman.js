@@ -17,7 +17,7 @@
       partially guessed word so far, as well as letters that the 
       user has not yet guessed.
 
-   TO DO - Add functionality to pull random word, tell the person if a letter was guessed and streamline code into smaller methods
+   TO DO - Add functionality to pull random word, 
 */
 
 (function () {
@@ -28,10 +28,30 @@
   Hangman.App = function(){
     this.secretWordController = new Hangman.SecretWordController('at');
     this.guessCount = 2;
+    this.guessList = [];
     this.keepGuessing();
+    this.checkDone();
 
   }
 
+  Hangman.App.prototype.avoidDups = function(guess){
+    if (this.guessList.indexOf(guess) !== -1){
+      console.log(this.guessList.indexOf(guess))
+      return true;
+    } else {
+      this.guessList.push(guess);
+      return false;
+    }
+  }
+
+  Hangman.App.prototype.checkDone = function() {
+    
+    if (this.secretWordController.isDone()) {
+      console.log('Congratulations, you won!');
+    } else {
+      console.log('Sorry, you ran out of guesses. The word was: ', this.secretWordController.secretWord);      
+    }
+  }
   Hangman.App.prototype.keepGuessing = function() {
     alert('Welcome to the game, Hangman! I am thinking of a word that is ' + this.secretWordController.secretWord.length + ' letters long.');
 
@@ -39,25 +59,29 @@
       this.doOneTurn();
     }
 
-    if (this.secretWordController.isDone()) {
-      console.log('Congratulations, you won!');
-    } else {
-      console.log('Sorry, you ran out of guesses. The word was:', this.secretWordController.secretWord);      
-    }
   }
 
   Hangman.App.prototype.doOneTurn = function() {
     console.log('You have ' + this.guessCount + ' guesses left.');
     var guess = prompt('Guess a letter:');
-    var guessCorrect = this.secretWordController.processGuess(guess);
 
-    if (guessCorrect) {
-      console.log("Good guess: ");
+    guessedAlready = this.avoidDups(guess);
+
+    if (!guessedAlready){
+      var guessCorrect = this.secretWordController.processGuess(guess);
+
+      if (guessCorrect) {
+        console.log("Good guess: ");
+      } else {
+        console.log("Oops! That letter is not in my word:");
+        this.guessCount -= 1;
+      }
     } else {
-      console.log("Oops! That letter is not in my word:");
-      this.guessCount -= 1;
+      console.log("Oops! You guessed that letter already:");
     }
+  
     console.log(this.secretWordController.getRevealed());
+
   }
 
   Hangman.SecretWordController = function (secretWord) {
