@@ -3,7 +3,7 @@
 Extract Number
 
 Input: A list of dictionaries with text that includes time
-Output: Strip the tmie out of the text, convert to time, calculate the average time and return the mean.
+Output: Strip the time out of the text, convert to time, calculate the average time and return the mean.
 
 Challenge: Account for military time. Account for
 '''

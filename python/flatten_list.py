@@ -19,5 +19,5 @@ if __name__ == '__main__':
 
     for impl in implementations:
         print "trying %s" % impl
-        print "  f(%s) == %s: %s" % (list_of_lists, result, (impl(l) == result))
+        print "  f(%s) == %s: %s" % (list_of_lists, result, (impl(list_of_lists) == result))
 

@@ -78,7 +78,7 @@ def sum_target5(target, num_list):
     return pairs
 
 
-#Consolidated solution to only one loop. - O(n)
+#O(n^2) - very similar to 5
 def sum_target6(target, num_list):
     pairs = {}
 
