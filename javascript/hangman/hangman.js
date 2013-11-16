@@ -17,15 +17,15 @@
       partially guessed word so far, as well as letters that the 
       user has not yet guessed.
 
-    * Word list is loaded on the html page. Alternative is to use ajax to load.
 
 */
 
 (function () {
     
+
   var Hangman = {};
 
-  // Pick the word
+
   Hangman.App = function(){
     var word = this.pickSecretWord();
     
@@ -41,6 +41,25 @@
 
   Hangman.App.prototype.guessedAlready = function(guess){
     if (this.guessList.indexOf(guess) !== -1){
+=======
+  Hangman.App = function () {
+    var word = this.pickSecretWord();
+    //word = 'eat'; // todo: remove later
+    this.secretWordController = new Hangman.SecretWordController(word);
+    this.remainingGuesses = 10;
+    this.guessList = [];
+    this.player = new Hangman.RobotPlayer(word.length);
+    this.playGame();
+  };
+
+  Hangman.App.prototype.pickSecretWord = function() {
+    return words[Math.floor(Math.random() * words.length)];
+  };
+
+  Hangman.App.prototype.guessedAlready = function(guess){
+    if (this.guessList.indexOf(guess) !== -1){
+      //console.log(this.guessList.indexOf(guess))
+>>>>>>> f8d62b1f07d569066c5dad5df7ea3f4c6e69c4fa
       return true;
     } else {
       this.guessList.push(guess);
@@ -56,10 +75,17 @@
       console.log('Sorry, you ran out of guesses. The word was: ', this.secretWordController.secretWord);      
     }
   };
+<<<<<<< HEAD
 
   Hangman.App.prototype.playGame = function() {
     alert('Welcome to the game, Hangman! I am thinking of a word that is ' + this.secretWordController.secretWord.length + ' letters long.');
 
+=======
+
+  Hangman.App.prototype.playGame = function() {
+    console.log('Welcome to the game, Hangman! I am thinking of a word that is ' + this.secretWordController.secretWord.length + ' letters long.');
+
+>>>>>>> f8d62b1f07d569066c5dad5df7ea3f4c6e69c4fa
     while (this.remainingGuesses > 0 && !this.secretWordController.isFullyRevealed()){
       this.doOneTurn();
     }
@@ -67,6 +93,7 @@
 
   };
 
+<<<<<<< HEAD
   Hangman.App.prototype.doOneTurn = function() {
     console.log('You have ' + this.remainingGuesses + ' guesses left.');
     var guess = prompt('Guess a letter:');
@@ -84,6 +111,34 @@
     
     console.log(this.secretWordController.getRevealed());
 
+=======
+  Hangman.App.prototype.doOneTurn = function () {
+
+    var guess = this.player.doTurn();
+    if (!guess) return;
+
+    var guessedAlready = this.guessedAlready(guess);
+    var matched = this.secretWordController.processGuess(guess);
+    var revealed = this.secretWordController.getRevealed();
+    var remaining = '(' + this.remainingGuesses + ' remaining)';
+    var message = '%c ', color = 'color:#fff;';
+
+    if (guessedAlready) {
+      message += 'Oops! You guessed ' + guess + ' already. ';
+      color += 'background-color:orange';
+    } else if (matched) {
+      message += guess + ' was a good guess! ';
+      color += 'background-color:green';
+    } else {
+      message += 'Oops! That ' + guess + ' is not in my word. ';
+      color += 'background-color:red';
+      this.remainingGuesses -= 1;
+    }
+
+    console.log(message, color, revealed, remaining);
+    this.player.afterTurn(guess, matched, revealed);
+
+>>>>>>> f8d62b1f07d569066c5dad5df7ea3f4c6e69c4fa
   };
 
   Hangman.SecretWordController = function (secretWord) {
