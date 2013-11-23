@@ -41,13 +41,18 @@ def fib_recursive(num):
         return fib_recursive(num - 1) + fib_recursive(num - 2)
 
 def fib_generator(num):
-    fib_1 = 0
-    fib_2 = 1
+    fib_1 = fib_2 = 0
     for n in range(num):
-        next = fib_1 + fib_2
-        yield next
-        fib_1 = fib_2
-        fib_2 = next
+        if n == 0:
+            fib_2 = 1
+            yield fib_1
+        elif n == 1:
+            yield fib_2
+        else:
+            next = fib_1 + fib_2
+            yield next
+            fib_1 = fib_2
+            fib_2 = next
 
 if __name__ == '__main__':
 
@@ -64,4 +69,9 @@ if __name__ == '__main__':
         print "  f(13) == 233: %s" % (impl(13) == 233)
 
     # Special case trying out generator
-    print fib_generator(13)
+    gen_example = fib_generator(13)
+    print "trying generator"
+    print "  f(0) == 0: %s" % (gen_example.next() == 0)
+    print "  f(1) == 1: %s" % (gen_example.next() == 1)
+    print "  f(2) == 1: %s" % (gen_example.next() == 1)
+    print "  f(3) == 2: %s" % (gen_example.next() == 2)
