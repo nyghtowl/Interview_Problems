@@ -38,8 +38,13 @@ if __name__ == '__main__':
     impl = find_primes
     sample_n = [1,6,7,100]
     results = [[],[2,3],[7],[2,5]]
+    print "trying find_primes"
     for index, n in enumerate(sample_n):
         # print "trying %s" % impl
         print "f(%s) == %s: %s" % (n,results[index],(impl(n) == results[index]))
 
-
+    print "trying genPrimes"
+    prime_print = genPrimes()
+    print "first round == 2: %s" % (prime_print.next() == 2)
+    print "first round == 3: %s" % (prime_print.next() == 3)
+    print "first round == 5: %s" % (prime_print.next() == 5)
