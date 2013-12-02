@@ -34,5 +34,6 @@ Contribute
 ============
 
 1. PLEASE – When editing tutorial or full source code, please edit the documentation to go along with it.
+2. Currently issues are listed directly in the code. Feel free to pull out and submit under Issues section.
 2. Fork the repository on GitHub to start making your changes to the master branch (or branch off of it)
 3. Send a pull request
