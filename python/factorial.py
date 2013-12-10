@@ -37,8 +37,17 @@ def loop_sol_2(n):
         n *= num
     return n
 
- # List comprehension solution - O(n)
+# For loop containing full conditional - O(n)
+def loop_sol_3(x):
+    for num in range(0,x+1):
+        if num < 2:
+            result = num
+        else:
+            result *= num
+    return result
 
+ 
+# List comprehension solution - O(n)
 def functional(n):
     return reduce(lambda x, y: x * y, [1] + range(1, n + 1))
 
@@ -47,7 +56,7 @@ std_lib = math.factorial
 
 if __name__ == '__main__':
     # Test section
-    implementations = [std_lib, rec_fact, loop_sol_1, loop_sol_2, functional]
+    implementations = [std_lib, rec_fact, loop_sol_1, loop_sol_2, loop_sol_3, functional]
 
     for impl in implementations:
         print "trying %s" % impl
