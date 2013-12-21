@@ -1,4 +1,7 @@
-""" This function takes in a list of integers and returns a list of integers containing the product of the 
+""" 
+Product integers
+
+This function takes in a list of integers and returns a list of integers containing the product of the 
 # rest of the integers, excluding the corresponding element from the original list of integers. 
 
 Examples:
@@ -41,12 +44,13 @@ def product_intgers(list1):
     print new_list
     return new_list
 
-# Sample Test Cases below.
-product_intgers([9]) #Expect [9]
-product_intgers([2,1,0]) # Expect [1,2]
-product_intgers([2,1,0]) #Expect [1,2]
-product_intgers([1,2,3]) #Expect [6,3,2]
-product_intgers([1,2,3,4]) #Expect [24,12,8,6]
-product_intgers([1,2,3,4,5]) #Expect [120,60,40,30,24]
-product_intgers([1,2,3,4,-5]) #Expect [-120,-60,-40,-30,24]
-product_intgers([0,0,0,0,0,0,0,0,0,0,0,0,0]) #Expect [0]
+if __name__ == '__main__':
+    # Sample Test Cases below.
+    product_intgers([9]) #Expect [9]
+    product_intgers([2,1,0]) # Expect [1,2]
+    product_intgers([2,1,0]) #Expect [1,2]
+    product_intgers([1,2,3]) #Expect [6,3,2]
+    product_intgers([1,2,3,4]) #Expect [24,12,8,6]
+    product_intgers([1,2,3,4,5]) #Expect [120,60,40,30,24]
+    product_intgers([1,2,3,4,-5]) #Expect [-120,-60,-40,-30,24]
+    product_intgers([0,0,0,0,0,0,0,0,0,0,0,0,0]) #Expect [0]
