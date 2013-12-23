@@ -1,7 +1,7 @@
 '''
 Reverse 
 
-Input: string, sentenece or link
+Input: string, sentence or link
 
 Out: reverse of what is submitted
 
