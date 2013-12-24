@@ -25,8 +25,8 @@ Installation
 ```bash
     # Clone repsitory.
     git clone https://github.com/nyghtowl/Interview_Problems.git
-    # Run files with python or ruby.
-    python <filename> or ruby <filename>
+    # Run files with python or ruby or php.
+    python <filename> or ruby <filename> or php <filename>
 ```
 
 
