@@ -1,7 +1,7 @@
 '''
 Family Tree
 
-From MIT CS 101 online class. This is an example of traversing the tree to get specific information. All information originally provided except cousin method.
+This is an example of traversing the tree to get specific information. All information originally provided except cousin method.
 
 Input: 
 Class Member is a class that represents a single person in the family, and Class Family represents the whole family tree.
@@ -23,6 +23,8 @@ Degree removed = How many levels different the nodes were on (e.g. node A is zer
 Cousin type = The node level that is the closest to a common parent/ancestor node. In general, i'th cousins have a grandparent or ancestor that is i levels up from their parents.  (e.g. B & C are zeroth cousins, D & G are 1st cousins, H & M are 2nd cousins)
 
 Combined = D & M are 1st cousins 1 removed, B & L are zeroth cousins 2 removed.
+
+From MIT CS 101 online class. 
 
 '''
 
