@@ -7,7 +7,7 @@ Output:
 
 var table = [[9,8], [2,3], [4,5], [3,4]]
 
-function dimension_sort(table){
+function dimensionSort(table){
 	return table.sort( function(a,b){
 		if (a[0]<b[0]){
 			return -1;
@@ -19,4 +19,4 @@ function dimension_sort(table){
 }
 
 //Test section
-dimension_sort(table);
+dimensionSort(table);

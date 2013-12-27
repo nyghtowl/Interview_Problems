@@ -1,10 +1,10 @@
-'''
+/**
 Palindrome
 
 Input: word
 Output: true if a palindrome
 
-'''
+**/
 
 function isPalindrome (word) {
 	var half = Math. floor(word.length / 2);
@@ -15,3 +15,7 @@ function isPalindrome (word) {
 	}
 	return true;
 }
+
+// Test section
+isPalindrome('happy');
+isPalindrome('aha');

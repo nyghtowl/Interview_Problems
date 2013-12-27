@@ -1,4 +1,4 @@
-'''
+/**
 Turn Matrix
 
 Given an 3x3 matrix, rotate the matrix by 90 degrees and return rotated matrix.
@@ -14,7 +14,7 @@ switch to
 8 5 2
 9 6 3
 
-'''
+**/
 #Javascript example solution 
 function rotateMatrix(matrix) {
     for(row=0; row<=matrix.length(); row++){

@@ -1,11 +1,11 @@
-'''
+/**
 Reverse 
 
 Input: string, sentence or link
 
 Out: reverse of what is submitted
 
-'''
+**/
 
 var reverse = function(orig){
 	var result = [];
@@ -16,4 +16,5 @@ var reverse = function(orig){
 }
 
 
+// Test section
 reverse("Hello");

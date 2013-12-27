@@ -11,7 +11,7 @@ if divisable by 15 - write fizz buzz
 
 var list_of_numbers = [1, 2, 3, 4, 5, 6, 15, 28, 30, 33, 35, 36, 40, 42];
 
-function fizzbuzz(list_of_numbers) {
+function fizzBuzz(list_of_numbers) {
 	for (var i=0; i<list_of_numbers.length; i++) {
 		var j = list_of_numbers[i]
 		if (j%3==0 && j%5==0) {
@@ -30,5 +30,5 @@ function fizzbuzz(list_of_numbers) {
 }
 
 // Test section
-fizzbuzz(list_of_numbers);
+fizzBuzz(list_of_numbers);
 
