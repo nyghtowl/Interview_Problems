@@ -14,9 +14,6 @@
  *  $out = ['dog', 'cat']
  */
 
-$inputA = ['dog', 'cat', 'egg'];
-$inputB = ['cat', 'dog', 'chicken'];
-
 
 /**
  * Solution A: Brute force looping - O(n^2) or O(n*m)
@@ -26,7 +23,7 @@ $inputB = ['cat', 'dog', 'chicken'];
  *
  * @return null
  */
-function listIntersectSolA($listA, $listB)
+function findListIntersect($listA, $listB)
 {
     $output = [];
     foreach ($listA as $itemA) {
@@ -37,8 +34,6 @@ function listIntersectSolA($listA, $listB)
         }
     }
 }
-
-listIntersectSolA($inputA, $inputB);
 
 /**
  * Solution B: Hashing and counts dups - O(n)
@@ -54,7 +49,7 @@ listIntersectSolA($inputA, $inputB);
  *
  * @return null
  */
-function listIntersectSolB($listA, $listB)
+function findListIntersectWithDupe($listA, $listB)
 {
     $output = [];
 
@@ -73,4 +68,21 @@ function listIntersectSolB($listA, $listB)
     }
 }
 
-listIntersectSolB($inputA, $inputB);
+/**
+ *  Test section
+ */
+
+// Set up input
+$inputA = ['dog', 'cat', 'egg'];
+$inputB = ['cat', 'dog', 'chicken'];
+$inputWithDupeA = ['cat', 'dog', 'dog', 'chicken'];
+$inputWithDupeB = ['bird', 'bird', 'dog', 'chicken'];
+
+// Test 1: Basic intersect
+findListIntersect($inputA, $inputB);
+
+// Test 2: Basic intersect, improved solution
+findListIntersectWithDupe($inputA, $inputB);
+
+// Test 3: Intersect with duplicates in both inputs
+findListIntersectWithDupe($inputWithDupeA, $inputWithDupeB);
