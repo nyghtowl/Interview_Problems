@@ -1,7 +1,7 @@
 /*
 Reverse 
 
-Input: string
+Input: single string
 
 Out: reverse of what is submitted
 
