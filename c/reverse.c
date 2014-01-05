@@ -1,11 +1,7 @@
 /*
 Reverse 
 
-<<<<<<< HEAD
-Input: single string
-=======
-Input: string, sentence or link
->>>>>>> c66c03c055a1cce252759a1f43ddfdecfdd41370
+Input: single array value
 
 Out: reverse of what is submitted
 

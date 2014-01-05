@@ -1,7 +1,7 @@
 /*
 Reverse
 
-Input: multiple strings
+Input: multiple array values
 
 Out: reverse what is submitted
 */
