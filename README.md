@@ -27,6 +27,9 @@ Installation
     git clone https://github.com/nyghtowl/Interview_Problems.git
     # Run files with python or ruby or php.
     python <filename> or ruby <filename> or php <filename>
+    # Run c files with the following and leave off extension where there is a filename.
+    Compile $ make <filename> 
+    Run $ ./<filename> <string to reverse>
 ```
 
 
