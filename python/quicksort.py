@@ -8,16 +8,13 @@ Output: sorted list using quicksort
 
 import random
 
-# O(n^2)
+# O(n^2) with list comprehension
 def quick_sort(l):
-    if l == []:
+    if len(l) <= 1:
         return []
-    else:
-        pivot = l[0]
-        lesser = quick_sort([x for x in l[1:] if x < pivot])
-        greater = quick_sort([x for x in l[1:] if x > pivot])
-        return lesser + [pivot] + greater
-
+    lesser = [x for x in l[1:] if x < l[0]]
+    greater = [x for x in l[1:] if x > l[0]]
+    return quick_sort(lesser) + [l[0]] + quick_sort(greater)
 
 def find_pivot(l):
     pivot_index = random.randint(0,len(l)-1)
@@ -56,12 +53,13 @@ def quick_sort3(l):
                 right.append(l)
     return quick_sort3(left) + quick_sort3(right)
 
+
 if __name__ == '__main__':
     #Test section
     l = [5,8,3,1,2,7,9,6]
     result = [1,2,3,5,6,7,8,9]
 
-    implementations = [quick_sort, quick_sort2, quick_sort3]
+    implementations = [quick_sort, quick_sort2, quick_sort3, quick_sort4]
 
     for impl in implementations:
         print "trying %s" % impl
