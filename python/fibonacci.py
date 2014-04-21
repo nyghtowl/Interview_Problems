@@ -54,10 +54,22 @@ def fib_generator(num):
             fib_1 = fib_2
             fib_2 = next
 
+# Return the fibonacci value at index entered
+def fib_iteration2(index):
+    results = [0, 1]
+    if index < 2:
+        return index
+    for i in range(1, index) 
+        new_val = results[0] + results[1]
+        results[0], results[1] = results[1], new_val
+    return results[-1]
+
+
+
 if __name__ == '__main__':
 
     # Test section
-    implementations = [fib_iteration, fib_recursive]
+    implementations = [fib_iteration, fib_iteration2, fib_recursive]
 
     for impl in implementations:
         print "trying %s" % impl
