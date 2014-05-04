@@ -19,8 +19,6 @@ Challenge:
 '''
 
 # O(n)
-
-
 def fib_iteration(num):
     alist = []
     first = 0
@@ -31,12 +29,10 @@ def fib_iteration(num):
         first, second = second, (first + second)
     return alist[num]
 
-
+# O(2^n)
 def fib_recursive(num):
-    if num == 0:
-        return 0
-    if num <= 2:
-        return 1
+    if num < 2:
+        return num
     else:
         return fib_recursive(num - 1) + fib_recursive(num - 2)
 
@@ -54,22 +50,27 @@ def fib_generator(num):
             fib_1 = fib_2
             fib_2 = next
 
-# Return the fibonacci value at index entered
+# O(n)
 def fib_iteration2(index):
     results = [0, 1]
     if index < 2:
         return index
-    for i in range(1, index) 
+    for i in range(1, index):
         new_val = results[0] + results[1]
         results[0], results[1] = results[1], new_val
     return results[-1]
 
-
+# O(n) - how to get adjustment if 3 returns 1?
+def fib_variation(n):
+    a, b, c, d = 0, 1, 1, 1
+    for i in range(n):
+        a, b, c, d = b, c, d, c+d
+    return sum(a, b, c, d)
 
 if __name__ == '__main__':
 
     # Test section
-    implementations = [fib_iteration, fib_iteration2, fib_recursive]
+    implementations = [fib_iteration, fib_iteration2, fib_recursive, fib_variation]
 
     for impl in implementations:
         print "trying %s" % impl
