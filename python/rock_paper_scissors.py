@@ -28,4 +28,4 @@ def rock_game(round, score):
     else:
         r -= 1 
         # Take max expected value if you play rock vs play paper strategy 
-        return max((.6rock_game(r, score+0)*.3rock_game(r, score+1)*.1rock_game(r, score-1)), (.6rock_game(r, score+1)*.3rock(_gamer, score-1)*.1rock_game(r, score+0)))
+        return max((.6rock_game(r, score+0)+.3rock_game(r, score+1)+.1rock_game(r, score-1)), (.6rock_game(r, score+1)+.3rock(_gamer, score-1)+.1rock_game(r, score+0)))
