@@ -18,9 +18,14 @@ def find_miss_num(list1, list2)
 		end
 	end
 	return result
-
 end
 
+# O(n)
+def find_miss_num(list1, list2)
+	longer_list = [list1, list2].max
+	shorter_list = [list1, list2].min
+	shorter_list - longer_list
+end
 
 if __FILE__ == $0
 	# Test section
