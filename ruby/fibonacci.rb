@@ -4,7 +4,7 @@ Fibonacci - each number equals the sum of the two preceding numbers.
 Fn = Fn-1 + Fn-2
 
 Input: the point in the sequence to take a fibonnaci number
-Output: the fibonnaci number at the point in a sequence starting a 0
+Output: the fibonnaci number at the point in a sequence starting at 0
 
 Ex: 
 At position 0 the Fib number is 0. 
