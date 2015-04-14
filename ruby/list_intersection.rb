@@ -16,6 +16,11 @@ def list_int(list1, list2)
 	response 
 end
 
+# 0(n)
+def list_int(list1, list2)
+	list1 & list2
+end
+
 if __FILE__ == $0
 
     # Test section
