@@ -2,7 +2,7 @@
 Prime Number
 
 Input: positive integer
-Output: set of prime divsors of a number
+Output: set of prime divisors of a number
 
 '''
 

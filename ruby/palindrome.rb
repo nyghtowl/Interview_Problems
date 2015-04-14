@@ -15,7 +15,7 @@ class Word
 
 end
 
-# Alternative Ruby class to inheret from string class and check for reverse string
+# Alternative Ruby class to inherit from string class and check for reverse string
 
 class Word2 < String
 
